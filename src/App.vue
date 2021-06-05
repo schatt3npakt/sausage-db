@@ -1,26 +1,30 @@
 <template>
-  <img alt="Vue logo" src="./assets/logo.png">
-  <HelloWorld msg="Welcome to Your Vue.js App"/>
+  <div class="site-wrapper">
+    <Headline :tag="1" />
+    <Headline :tag="2" />
+    <Headline :tag="3" />
+
+    <Table />
+  </div>
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue'
+import Headline from './components/Headline.vue'
+import Table from './components/Table.vue'
 
 export default {
   name: 'App',
   components: {
-    HelloWorld
+    Headline,
+    Table
   }
 }
 </script>
 
 <style>
-#app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
+html {
+  background: rgb(1,190,241);
+  background: linear-gradient(0deg, rgba(1,190,241,1) 0%, rgba(101,224,249,1) 100%);
+  background-size: 100% 100%;
 }
 </style>
