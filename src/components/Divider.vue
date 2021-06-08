@@ -16,7 +16,8 @@ export default {
 <style scoped>
 .divider {
   display: flex;
-  margin: 80px 0;
+  margin: 80px auto;
+  max-width: 600px;
 }
 
 .divider__image {

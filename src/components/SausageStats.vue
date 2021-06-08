@@ -25,7 +25,7 @@ export default {
 
 .sausage-stats__item {
   color: white;
-  font-family: 'Arial' ,sans-serif;
+  font-family: 'Nunito', 'Arial' ,sans-serif;
   font-weight: 700;
   hyphens: auto;
   letter-spacing: 0.5px;

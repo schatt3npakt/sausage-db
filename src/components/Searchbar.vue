@@ -25,7 +25,7 @@ export default {
 
 .searchbar__input {
   border-radius: 15px 0 0 15px;
-  font-family: 'Arial' ,sans-serif;
+  font-family: 'Nunito', 'Arial' ,sans-serif;
   font-weight: 700;
   text-transform: uppercase;
   display: block;
@@ -50,6 +50,7 @@ export default {
   border-radius: 0 15px 15px 0;
   border: none;
   color: transparent;
+  cursor: pointer;
   display: block;
   height: 59px;
   margin: 0;
@@ -57,7 +58,14 @@ export default {
   position: relative;
   width: 59px;
   font-size: 0;
-  text-indent: -9999px
+  text-indent: -9999px;
+  transition: background-color 0.25s ease-out;
+}
+
+.searchbar__submit:active,
+.searchbar__submit:hover,
+.searchbar__submit:focus {
+  background-color: var(--light-mode-button-hover-bg-color);
 }
 
 .searchbar__submit::before {

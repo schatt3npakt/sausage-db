@@ -15,11 +15,14 @@ export default {
 <style scoped>
 p {
   color: white;
-  font-family: 'Arial' ,sans-serif;
+  font-family: 'Nunito', 'Arial' ,sans-serif;
   font-weight: 700;
+  font-size: 16px;
   hyphens: auto;
   letter-spacing: 0.5px;
   line-height: 1.3;
-  margin: 0 0 40px 0;
+  margin: 0 auto 40px auto;
+  text-align: center;
+  max-width: 800px;
 }
 </style>
