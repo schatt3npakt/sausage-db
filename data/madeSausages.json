@@ -1,0 +1,37 @@
+{
+  "data": [
+    {
+      "id": 1,
+      "name": "Big Mac",
+      "rating": "3/5",
+      "dibl": "Not Done",
+      "dibu": "Yes",
+      "episode": "Big Mac Sausage",
+      "episodeID": "f5wvSQdkgXA&t",
+      "episodeType": "Standard",
+      "episodeLength": "04:37"
+    },
+    {
+      "id": 2,
+      "name": "Spaghetti and Meatballs",
+      "rating": "2/5",
+      "dibl": "Not Done",
+      "dibu": "Yes",
+      "episode": "Spaghetti ans Meatballs Sausage",
+      "episodeID": "qNZ08y8d7RY",
+      "episodeType": "Standard",
+      "episodeLength": "04:02"
+    },
+    {
+      "id": 3,
+      "name": "Entire KFC Big Box Meal",
+      "rating": "5/5",
+      "dibl": "Not Done",
+      "dibu": "Yes",
+      "episode": "Entire KFC Big Box Meal Sausage",
+      "episodeID": "Ve9mlKn4FTs",
+      "episodeType": "Standard",
+      "episodeLength": "02:51"
+    }
+  ]
+}

@@ -34,7 +34,7 @@
       />
     </section>
 
-    <Divider />
+    <Divider/>
 
     <section>
       <Headline
@@ -42,11 +42,10 @@
           :tag="2"
       />
 
-      <Table/>
+      <Table :sausageData="madeData"/>
     </section>
 
-    <Divider />
-
+    <!--
     <section>
       <Headline
           message="Another Block"
@@ -61,8 +60,6 @@
       />
     </section>
 
-    <Divider />
-
     <section>
       <Headline
           message="Another Block"
@@ -75,26 +72,30 @@
           :videos="videos"
       />
     </section>
+    -->
   </div>
 </template>
 
 <script>
 import BackToTop from "./components/Back-To-Top";
-import CTA from "./components/CTA";
+// import CTA from "./components/CTA";
 import Divider from "./components/Divider";
 import Headline from './components/Headline.vue'
 import Paragraph from "./components/Paragraph"
 import SausageStats from "./components/SausageStats";
 import Searchbar from "./components/Searchbar";
 import Table from './components/Table.vue'
-import VideoSlider from "./components/VideoSlider";
+// import VideoSlider from "./components/VideoSlider";
+
+// data imports
+import * as madeDataJSON from '/data/madeSausages.json'
 
 export default {
   name: 'App',
   components: {
-    VideoSlider,
+    // VideoSlider,
     BackToTop,
-    CTA,
+    // CTA,
     Divider,
     Headline,
     Paragraph,
@@ -104,6 +105,7 @@ export default {
   },
   data: function() {
     return {
+      madeData: madeDataJSON.data,
       sausageStats: [
         {id: 0, value: "364", message: "Sausages made"},
         {id: 1, value: "14", message: "Something Something"},
@@ -111,7 +113,7 @@ export default {
       ],
       videos: [
         {id: 0, videoID: "nLheOsNHVTY"},
-        {id: 1, videoID: "nLheOsNHVTY"},
+        {id: 1, videoID: "cnhhGk_ALeg"},
         {id: 2, videoID: "nLheOsNHVTY"}
       ]
     };
