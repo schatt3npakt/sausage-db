@@ -3,12 +3,6 @@
 ##Releases
 
 ###0.0.0
-
-___
-
-##Features
-
-###MUST
 - Headline Component
 - Paragraph Component
 - Divider Component
@@ -17,10 +11,20 @@ ___
 - General Page Styling
 - Table Component
 
+___
+
+##Features
+
+###MUST
+- Search Bar
+- structured Data
+- Fix background animation
+- DOCUMENTATION!
+
 ###SHOULD
 
 ###COULD
 - Sausage API
--Dark Mode
+- Dark Mode
 
 ___

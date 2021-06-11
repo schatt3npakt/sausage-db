@@ -19,7 +19,9 @@ Did It Burst?
 Episode (Name/Link)
 Episode type
     - Standard
-    - YouTube Comment Suggestion
+    - YouTube Comments Suggestion
+    - Milestone Special
+    - Holiday Special
     - Stream Recording
     - Should You Buy It?
     - Collaboration
