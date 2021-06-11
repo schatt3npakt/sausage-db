@@ -4,6 +4,16 @@
     <div class="table__sidebar">
       <div class="table__sidebar__inner">
         <span
+            class="table__sidebar__name-filter"
+            :class="{
+                current: (currentSort === 'name') ? 'current' : '',
+                asc: (currentSortDir === 'asc') ?  'asc' : ''
+              }"
+            @click="sort('name')"
+        >
+          Name
+        </span>
+        <span
           v-for="entry in sortedSausages"
           :key="entry.id"
           :id="kebabCase(entry.name)"
@@ -86,7 +96,7 @@
             >{{entry.episode}}</a>
           </td>
           <td>{{ entry.episodeType }}</td>
-          <td>{{ entry.episodeLength }}</td>
+          <td>{{ formatTimestamp(entry.episodeLength) }}</td>
         </tr>
       </table>
     </div>
@@ -118,6 +128,18 @@ export default {
     }
   },
   methods: {
+    formatTimestamp: function (timestring) {
+      let timeArray = timestring.split(':')
+
+      if (timeArray[0] < 59) {
+        return timestring
+      }
+
+      let hours = Math.round(timeArray[0] / 60)
+      let minutes = timeArray[0] % 60
+
+      return hours + ":" + minutes + ":" + timeArray[1]
+    },
     kebabCase: function (string) {
       return string.toLowerCase().replace(/\s+/g, '-')
     },
@@ -166,7 +188,6 @@ function tableScroll() {
 
 .table__sidebar {
   color: white;
-  margin-top: 42px;
   min-width: 240px;
   overflow-y: hidden;
 }
@@ -204,7 +225,8 @@ th::after {
   display: none;
 }
 
-th.current::after {
+th.current::after,
+.table__sidebar__name-filter.current::after {
   border-bottom: 10px solid white;
   border-left: 5px solid transparent;
   border-right: 5px solid transparent;
@@ -216,8 +238,14 @@ th.current::after {
   transition: transform 0.25s ease-out;
 }
 
-th.current:not(.asc)::after {
+th.current:not(.asc)::after,
+.table__sidebar__name-filter:not(.asc)::after {
   transform: rotate(-180deg);
+}
+
+.table__sidebar__name-filter {
+  cursor: pointer;
+  position: relative;
 }
 
 td,
