@@ -22,7 +22,7 @@ Episode type
     - YouTube Comments Suggestion
     - Milestone Special
     - Holiday Special
-    - Stream Recording
+    - Livestream Recording
     - Should You Buy It?
     - Collaboration
     - Other

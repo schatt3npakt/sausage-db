@@ -59,14 +59,6 @@
           </th>
           <th
               :class="{
-                current: (currentSort === 'song') ? 'current' : '',
-                asc: (currentSortDir === 'asc') ?  'asc' : ''
-              }"
-              @click="sort('song')"
-          >Mr. Sausage Sings
-          </th>
-          <th
-              :class="{
                 current: (currentSort === 'episode') ? 'current' : '',
                 asc: (currentSortDir === 'asc') ?  'asc' : ''
               }"
@@ -89,6 +81,14 @@
               @click="sort('episodeLength')"
           >Episode Length
           </th>
+          <th
+              :class="{
+                current: (currentSort === 'song') ? 'current' : '',
+                asc: (currentSortDir === 'asc') ?  'asc' : ''
+              }"
+              @click="sort('song')"
+          >Mr. Sausage Sings
+          </th>
         </tr>
 
         <tr
@@ -100,19 +100,23 @@
             <span v-else-if="entry.id > 9 && entry.id < 99">0{{ entry.id }}</span>
             <span v-else>{{ entry.id }}</span>
           </td>
-          <td>{{ entry.rating }}</td>
+          <td>
+            {{ entry.rating }}
+          </td>
           <td>{{ entry.dibl }}</td>
           <td>{{ entry.dibu }}</td>
-          <td>{{ entry.song }}</td>
           <td>
             <a
                 :href="`https://www.youtube.com/watch?v=${entry.episodeID}`"
                 target="_blank"
                 rel="noopener"
-            >{{ entry.episode }}</a>
+            >{{ entry.episode }}</a>inro
           </td>
           <td>{{ entry.episodeType }}</td>
           <td>{{ formatTimestamp(entry.episodeLength) }}</td>
+          <td>
+            {{ entry.song }}
+          </td>
         </tr>
       </table>
     </div>
@@ -139,7 +143,7 @@ export default {
   data: function () {
     return {
       currentSort: 'id',
-      currentSortDir: 'asc',
+      currentSortDir: 'desc',
       sausages: this.sausageData
     }
   },
@@ -265,8 +269,10 @@ th.current:not(.asc)::after,
 }
 
 .table__sidebar__name-filter {
+  background-color: var(--light-mode-table-bg-color);
   cursor: pointer;
-  position: relative;
+  position: sticky;
+  top: 0;
 }
 
 td,

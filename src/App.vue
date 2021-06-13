@@ -153,7 +153,7 @@ export default {
       sausageStats: [
         {id: 0, value: "100", message: "Sausages made!"},
         {id: 1, value: "3", message: "5/5 Sausages!"},
-        {id: 2, value: "23", message: "sNo-Burst-Streak!"}
+        {id: 2, value: "23", message: "No-Burst-Streak!"}
       ],
       videos: [
         {id: 0, videoID: "nLheOsNHVTY"},
