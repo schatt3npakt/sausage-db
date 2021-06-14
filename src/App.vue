@@ -50,9 +50,11 @@
 
       <Table :sausageData="madeData"/>
 
-      <Paragraph
-          message="The database was last updated on 06.06.2021"
-      />
+      <p>
+        It collects data about everything that has been forced through a grinder,
+        projectiled across the entire kitchen or lost to the looming threat of sausage bursts.
+        <br /> Then it gets pressed into a nice, sortable table.
+      </p>
     </section>
 
     <Divider/>
@@ -63,9 +65,11 @@
           :tag="2"
       />
 
-      <Paragraph
-          message="."
-      />
+      <p>
+        It collects data about everything that has been forced through a grinder,
+        projectiled across the entire kitchen or lost to the looming threat of sausage bursts.
+        <br /> Then it gets pressed into a nice, sortable table.
+      </p>
 
       <CTA
           message="test"

@@ -2,7 +2,7 @@
   "data": [
     {
       "id": 1,
-      "name": "Big Mac",
+      "type": "Big Mac",
       "rating": "3/5",
       "dibl": "Not Done",
       "dibu": "Yes",
@@ -14,7 +14,7 @@
     },
     {
       "id": 2,
-      "name": "Spaghetti and Meatballs",
+      "type": "Spaghetti and Meatballs",
       "rating": "2/5",
       "dibl": "Not Done",
       "dibu": "Yes",
@@ -26,7 +26,7 @@
     },
     {
       "id": 3,
-      "name": "Entire KFC Big Box Meal",
+      "type": "Entire KFC Big Box Meal",
       "rating": "5/5",
       "dibl": "Not Done",
       "dibu": "Yes",
@@ -38,7 +38,7 @@
     },
     {
       "id": 4,
-      "name": "Sushi",
+      "type": "Sushi",
       "rating": "0/5",
       "dibl": "Not Done",
       "dibu": "Yes",
@@ -50,7 +50,7 @@
     },
     {
       "id": 5,
-      "name": "Pizza Rolls",
+      "type": "Pizza Rolls",
       "rating": "1/5",
       "dibl": "Not Done",
       "dibu": "No",
@@ -62,7 +62,7 @@
     },
     {
       "id": 6,
-      "name": "Taco Bell Crunchy Taco",
+      "type": "Taco Bell Crunchy Taco",
       "rating": "1/5",
       "dibl": "Not Done",
       "dibu": "Yes",
@@ -74,7 +74,7 @@
     },
     {
       "id": 7,
-      "name": "Vanilla Cake",
+      "type": "Vanilla Cake",
       "rating": "4/5",
       "dibl": "Not Done",
       "dibu": "Yes",
@@ -86,7 +86,7 @@
     },
     {
       "id": 8,
-      "name": "St Patrick's Day Corned Beef and Cabbage",
+      "type": "St Patrick's Day Corned Beef and Cabbage",
       "rating": "5/5",
       "dibl": "Not Done",
       "dibu": "No",
@@ -98,7 +98,7 @@
     },
     {
       "id": 9,
-      "name": "Vienna Sausage",
+      "type": "Vienna Sausage",
       "rating": "0/5",
       "dibl": "Not Done",
       "dibu": "Yes",
@@ -110,7 +110,7 @@
     },
     {
       "id": 10,
-      "name": "Panda Express Orange Chicken and Chow Mein",
+      "type": "Panda Express Orange Chicken and Chow Mein",
       "rating": "2/5",
       "dibl": "Yes",
       "dibu": "Yes",
@@ -122,7 +122,7 @@
     },
     {
       "id": 11,
-      "name": "Passover",
+      "type": "Passover",
       "rating": "1/5",
       "dibl": "Not Done",
       "dibu": "Yes",
@@ -134,7 +134,7 @@
     },
     {
       "id": 12,
-      "name": "Easter Surprise",
+      "type": "Easter Surprise",
       "rating": "1/5",
       "dibl": "Not Done",
       "dibu": "Yes",
@@ -146,7 +146,7 @@
     },
     {
       "id": 13,
-      "name": "Arby's Big Beef and Cheddar",
+      "type": "Arby's Big Beef and Cheddar",
       "rating": "2/5",
       "dibl": "Not Done",
       "dibu": "Yes",
@@ -158,7 +158,7 @@
     },
     {
       "id": 14,
-      "name": "Reaction",
+      "type": "Reaction",
       "rating": "0/5",
       "dibl": "Not Done",
       "dibu": "Yes",
@@ -170,7 +170,7 @@
     },
     {
       "id": 15,
-      "name": "McDonald's Chicken McNugget",
+      "type": "McDonald's Chicken McNugget",
       "rating": "2.5/5",
       "dibl": "Yes",
       "dibu": "Yes",
@@ -182,7 +182,7 @@
     },
     {
       "id": 16,
-      "name": "Bloomin Onion",
+      "type": "Bloomin Onion",
       "rating": "1/5",
       "dibl": "Not Done",
       "dibu": "Yes",
@@ -194,7 +194,7 @@
     },
     {
       "id": 17,
-      "name": "MRE Menu 7: Beef Brisket",
+      "type": "MRE Menu 7: Beef Brisket",
       "rating": "Disqualified",
       "dibl": "Not Done",
       "dibu": "Yes",
@@ -206,7 +206,7 @@
     },
     {
       "id": 18,
-      "name": "Egg Roll",
+      "type": "Egg Roll",
       "rating": "3/5",
       "dibl": "Not Done",
       "dibu": "No",
@@ -218,7 +218,7 @@
     },
     {
       "id": 19,
-      "name": "Lobster",
+      "type": "Lobster",
       "rating": "5/5",
       "dibl": "Not Done",
       "dibu": "No",
@@ -230,7 +230,7 @@
     },
     {
       "id": 20,
-      "name": "Water",
+      "type": "Water",
       "rating": "0/5",
       "dibl": "Not Done",
       "dibu": "No",
@@ -242,7 +242,7 @@
     },
     {
       "id": 21,
-      "name": "Pickle",
+      "type": "Pickle",
       "rating": "1/5",
       "dibl": "Not Done",
       "dibu": "No",
@@ -254,7 +254,7 @@
     },
     {
       "id": 22,
-      "name": "Chipotle Steak Burrito",
+      "type": "Chipotle Steak Burrito",
       "rating": "3/5",
       "dibl": "Yes",
       "dibu": "Yes",
@@ -266,7 +266,7 @@
     },
     {
       "id": 23,
-      "name": "Denny's Original Grand Slam",
+      "type": "Denny's Original Grand Slam",
       "rating": "3/5",
       "dibl": "Not Done",
       "dibu": "No",
@@ -278,7 +278,7 @@
     },
     {
       "id": 24,
-      "name": "Literally Just Eggs",
+      "type": "Literally Just Eggs",
       "rating": "3/5",
       "dibl": "Not Done",
       "dibu": "No",
@@ -290,7 +290,7 @@
     },
     {
       "id": 25,
-      "name": "Beef Heart",
+      "type": "Beef Heart",
       "rating": "4/5",
       "dibl": "Not Done",
       "dibu": "No",
@@ -302,7 +302,7 @@
     },
     {
       "id": 26,
-      "name": "Strawberry",
+      "type": "Strawberry",
       "rating": "0/5",
       "dibl": "Not Done",
       "dibu": "Yes",
@@ -314,7 +314,7 @@
     },
     {
       "id": 27,
-      "name": "MRE: Rib-shaped BBQ Patties",
+      "type": "MRE: Rib-shaped BBQ Patties",
       "rating": "Disqualified",
       "dibl": "Not Done",
       "dibu": "Yes",
@@ -326,7 +326,7 @@
     },
     {
       "id": 28,
-      "name": "MRE: White Chicken Chunks",
+      "type": "MRE: White Chicken Chunks",
       "rating": "0/5",
       "dibl": "Yes",
       "dibu": "Yes",
@@ -338,15 +338,63 @@
     },
     {
       "id": 29,
-      "name": "Marie Calendar's Chicken Pot Pie",
-      "rating": "Disqualified",@
-      "dibl": "Not Done",
+      "type": "Marie Calendar's Chicken Pot Pie",
+      "rating": "2/5",
+      "dibl": "Yes",
       "dibu": "Yes",
       "song": "No Song",
       "episode": "Marie Calendar's Chicken Pot Pie Sausage",
-      "episodeID": "8YqWMJVp8A0",
+      "episodeID": "wpJbAZH68Ps",
       "episodeType": "Standard",
-      "episodeLength": "60:31"
+      "episodeLength": "02:54"
+    },
+    {
+      "id": 30,
+      "type": "Hot Dog",
+      "rating": "1/5",
+      "dibl": "Yes",
+      "dibu": "No",
+      "song": "No Song",
+      "episode": "Hot Dog Sausage",
+      "episodeID": "fCBtHbjek04",
+      "episodeType": "Standard",
+      "episodeLength": "01:02"
+    },
+    {
+      "id": 31,
+      "type": "An Entire Fish",
+      "rating": "0/5",
+      "dibl": "Not Done",
+      "dibu": "No",
+      "song": "Take Me to the River, Entry Of The Gladiators",
+      "episode": "An Entire Fish Sausage",
+      "episodeID": "q3keZ0KAYNo",
+      "episodeType": "Standard",
+      "episodeLength": "05:32"
+    },
+    {
+      "id": 32,
+      "type": "Candy",
+      "rating": "1/5",
+      "dibl": "Not Done",
+      "dibu": "Yes",
+      "song": "No Song",
+      "episode": "Candy Sausage",
+      "episodeID": "ox0P8fDde90",
+      "episodeType": "Standard",
+      "episodeLength": "01:08"
+    },
+    {
+      "id": 33,
+      "type": "Panda Express Orange Chicken Redux",
+      "rating": "1/5",
+      "dibl": "Not Done",
+      "dibu": "Yes",
+      "song": "No Song",
+      "episode": "Panda Express Orange Chicken Sausage Redux",
+      "episodeID": "U5bZ97bKFbM",
+      "episodeType": "Standard",
+      "episodeLength": "01:08"
     }
   ]
 }

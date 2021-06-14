@@ -6,18 +6,18 @@
         <span
             class="table__sidebar__name-filter"
             :class="{
-                current: (currentSort === 'name') ? 'current' : '',
+                current: (currentSort === 'type') ? 'current' : '',
                 asc: (currentSortDir === 'asc') ?  'asc' : ''
               }"
-            @click="sort('name')"
+            @click="sort('type')"
         >
-          Name
+          Type
         </span>
         <span
             v-for="entry in sortedSausages"
             :key="entry.id"
-            :id="kebabCase(entry.name)"
-        >{{ entry.name }}
+            :id="kebabCase(entry.type)"
+        >{{ entry.type }}
       </span>
       </div>
     </div>
@@ -110,7 +110,7 @@
                 :href="`https://www.youtube.com/watch?v=${entry.episodeID}`"
                 target="_blank"
                 rel="noopener"
-            >{{ entry.episode }}</a>inro
+            >{{ entry.episode }}</a>
           </td>
           <td>{{ entry.episodeType }}</td>
           <td>{{ formatTimestamp(entry.episodeLength) }}</td>
