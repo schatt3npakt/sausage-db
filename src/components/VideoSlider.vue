@@ -13,9 +13,12 @@
     </div>
 
     <div class="glide__bullets" data-glide-el="controls[nav]">
-      <button class="glide__bullet" data-glide-dir="=0"></button>
-      <button class="glide__bullet" data-glide-dir="=1"></button>
-      <button class="glide__bullet" data-glide-dir="=2"></button>
+      <button
+          class="glide__bullet"
+          v-for="(video, index) in videos"
+          :data-glide-dir="glideData(index)"
+          :key="video.id"
+      ></button>
     </div>
   </div>
 </template>
@@ -24,13 +27,19 @@
 import Glide from '@glidejs/glide'
 
 export default {
+  methods: {
+    glideData: function (index) {
+      return "=" + index
+    }
+  },
   mounted: function () {
     window.onload = () => {
       new Glide('.glide', {
-        autoplay: 2000,
+        autoplay: 2500,
         hoverpause: true,
         perView: 1,
         startAt: 0,
+        dragThreshold: false,
         type: 'carousel'
       }).mount()
     };
@@ -45,12 +54,36 @@ export default {
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
 .glide {
+  cursor: auto;
   margin: auto;
   max-width: 600px;
 }
 
+.glide__bullet {
+  height: 15px;
+  margin: 0 8px;
+  width: 15px;
+}
+
+@media (min-width: 600px) {
+  .glide__bullet {
+    height: 13px;
+    margin: 0 5px;
+    width: 13px;
+  }
+}
+
 .glide__video {
-  height: 415px;
-  width: 600px;
+  cursor: pointer;
+  height: 215px;
+  width: 400px;
+  margin-bottom: 60px;
+}
+
+@media (min-width: 600px) {
+  .glide__video {
+    height: 415px;
+    width: 600px;
+  }
 }
 </style>

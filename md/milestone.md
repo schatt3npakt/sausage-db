@@ -19,7 +19,9 @@ ___
 - Search Bar
 - structured Data
 - Fix background animation
+  Set Timeout after sorting
 - DOCUMENTATION!
+- get views from API
 
 ###SHOULD
 

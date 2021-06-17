@@ -97,14 +97,29 @@
         >
           <td>
             <span v-if="entry.id < 10">00{{ entry.id }}</span>
-            <span v-else-if="entry.id > 9 && entry.id < 99">0{{ entry.id }}</span>
+            <span v-else-if="entry.id > 9 && entry.id < 100">0{{ entry.id }}</span>
             <span v-else>{{ entry.id }}</span>
           </td>
           <td>
-            {{ entry.rating }}
+            <span v-if="entry.rating === -1">Disqualified</span>
+            <span v-else>{{entry.rating}}/5</span>
           </td>
-          <td>{{ entry.dibl }}</td>
-          <td>{{ entry.dibu }}</td>
+          <td>
+            <span v-if="entry.dibl === -1">Not Done</span>
+            <span v-else-if="entry.dibl === 0">No</span>
+            <span v-else-if="entry.dibl === 1">Yes (No Rating)</span>
+            <span v-else-if="entry.dibl === 1.5">0.5/5 Mark Ruffalos</span>
+            <span v-else-if="entry.dibl === 2">1/5 Mark Ruffalos</span>
+            <span v-else-if="entry.dibl === 3">2/5 Mark Ruffalos</span>
+            <span v-else-if="entry.dibl === 4">3/5 Mark Ruffalos</span>
+            <span v-else-if="entry.dibl === 5">4/5 Mark Ruffalos</span>
+            <span v-else-if="entry.dibl === 6">5/5 Mark Ruffalos</span>
+            <span v-else-if="entry.dibl === 7">6/5 Mark Ruffalos</span>
+          </td>
+          <td>
+            <span v-if="entry.dibu === 0">No</span>
+            <span v-else>Yes</span>
+          </td>
           <td>
             <a
                 :href="`https://www.youtube.com/watch?v=${entry.episodeID}`"
@@ -112,8 +127,18 @@
                 rel="noopener"
             >{{ entry.episode }}</a>
           </td>
-          <td>{{ entry.episodeType }}</td>
-          <td>{{ formatTimestamp(entry.episodeLength) }}</td>
+          <td>
+            <span v-if="entry.episodeType === 0">Collaboration</span>
+            <span v-else-if="entry.episodeType === 1">Holiday Special</span>
+            <span v-else-if="entry.episodeType === 2">Livestream Recording</span>
+            <span v-else-if="entry.episodeType === 3">Milestone Special</span>
+            <span v-else-if="entry.episodeType === 4">Other</span>
+            <span v-else-if="entry.episodeType === 5">Should You Buy It?</span>
+            <span v-else-if="entry.episodeType === 6">Standard</span>
+            <span v-else-if="entry.episodeType === 7">YouTube Celebrity Special</span>
+            <span v-else-if="entry.episodeType === 8">YouTube Comments Suggestions</span>
+          </td>
+          <td>{{ entry.episodeLength }}</td>
           <td>
             {{ entry.song }}
           </td>
@@ -148,18 +173,6 @@ export default {
     }
   },
   methods: {
-    formatTimestamp: function (timestring) {
-      let timeArray = timestring.split(':')
-
-      if (timeArray[0] < 59) {
-        return timestring
-      }
-
-      let hours = Math.round(timeArray[0] / 60)
-      let minutes = timeArray[0] % 60
-
-      return hours + ":" + minutes + ":" + timeArray[1]
-    },
     kebabCase: function (string) {
       return string.toLowerCase().replace(/\s+/g, '-')
     },
@@ -208,12 +221,12 @@ function tableScroll() {
 
 .table__sidebar {
   color: white;
-  min-width: 180px;
+  min-width: 220px;
 }
 
 @media (min-width: 600px) {
   .table__sidebar {
-    min-width: 350px;
+    min-width: 400px;
   }
 }
 
@@ -287,7 +300,7 @@ td span {
 td,
 th,
 span {
-  font-size: 11px;
+  font-size: 7px;
   padding: 10px 20px;
 }
 

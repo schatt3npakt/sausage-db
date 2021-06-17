@@ -28,7 +28,7 @@ export default {
   font-family: 'Nunito', 'Arial' ,sans-serif;
   font-weight: 700;
   hyphens: auto;
-  letter-spacing: 0.5px;
+  letter-spacing: 1px;
   line-height: 1.3;
   padding: 0 15px;
   text-align: center;
@@ -36,7 +36,7 @@ export default {
 }
 
 .sausage-stats__item__value {
-  font-size: 32px;
+  font-size: 38px;
   margin: 0 0 10px 0;
 }
 
