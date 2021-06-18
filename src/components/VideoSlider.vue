@@ -74,6 +74,7 @@ export default {
 }
 
 .glide__video {
+  box-shadow: 0 0 15px 0 var(--light-mode-search-bar-submit-bg-color);
   cursor: pointer;
   height: 215px;
   width: 400px;

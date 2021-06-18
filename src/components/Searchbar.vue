@@ -10,7 +10,7 @@
       <button class="searchbar__submit" @click="scrollToAnchor(firstSearchResult)">Search</button>
     </div>
 
-    <div class="searchbar__results" :class="{hidden: searchBarValue.length <= 2}">
+    <div class="searchbar__results" :class="{hidden: searchBarValue.length <= 1}">
       <a
           :class="{selected: index === 0}"
           v-for="(entry, index) in filteredArray"

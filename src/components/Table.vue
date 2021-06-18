@@ -26,6 +26,15 @@
       <table class="table" cellpadding="0" cellspacing="0">
         <tr class="table__header-wrapper">
           <th
+              class="type-mobile"
+              :class="{
+                current: (currentSort === 'type') ? 'current' : '',
+                asc: (currentSortDir === 'asc') ?  'asc' : ''
+              }"
+              @click="sort('type')"
+          >Type
+          </th>
+          <th
               :class="{
                 current: (currentSort === 'id') ? 'current' : '',
                 asc: (currentSortDir === 'asc') ?  'asc' : ''
@@ -97,6 +106,9 @@
             :key="entry.id"
             :id="kebabCase(entry.type)"
         >
+          <td class="type-mobile">
+            {{entry.type}}
+          </td>
           <td>
             <span v-if="entry.id < 10">00{{ entry.id }}</span>
             <span v-else-if="entry.id > 9 && entry.id < 100">0{{ entry.id }}</span>
@@ -224,11 +236,12 @@ function tableScroll() {
 
 .table__sidebar {
   color: white;
-  min-width: 220px;
+  display: none;
 }
 
 @media (min-width: 600px) {
   .table__sidebar {
+    display: block;
     min-width: 400px;
   }
 }
@@ -309,7 +322,7 @@ td span {
 td,
 th,
 span {
-  font-size: 7px;
+  font-size: 10px;
   padding: 10px 20px;
 }
 
@@ -325,6 +338,16 @@ tr.is-current {
   animation-name: highlightRow;
   animation-duration: 0.5s;
   animation-iteration-count: 7;
+}
+
+.type-mobile {
+  display: block;
+}
+
+@media (min-width: 600px) {
+  .type-mobile {
+    display: none
+  }
 }
 
 @keyframes highlightRow {

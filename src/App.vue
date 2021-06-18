@@ -11,17 +11,13 @@
       <p>
         The Sausage Database is a fan project dedicated to listing
         <a href="https://www.youtube.com/c/OrdinarySausage/featured" target="_blank" rel="noopener">Ordinary Sausage's</a>
-        Sausage creations.
+        sausage creations.
       </p>
 
       <p>
         It collects data about everything that has been forced through a grinder,
-        projectiled across the entire kitchen or lost to the looming threat of sausage bursts.
+        projectiled across the entire kitchen or lost to the ever looming threat of sausage bursts.
         <br /> Then it gets pressed into a nice, sortable table.
-      </p>
-
-      <p>
-        Let's list those sausages!
       </p>
 
       <Searchbar />
@@ -51,9 +47,7 @@
       <Table :sausageData="madeData"/>
 
       <p>
-        It collects data about everything that has been forced through a grinder,
-        projectiled across the entire kitchen or lost to the looming threat of sausage bursts.
-        <br /> Then it gets pressed into a nice, sortable table.
+        The database was last updated on <b>01.01.2021</b>
       </p>
     </section>
 
@@ -61,19 +55,24 @@
 
     <section>
       <Headline
-          message="About"
+          message="The Data"
           :tag="2"
       />
 
       <p>
-        It collects data about everything that has been forced through a grinder,
-        projectiled across the entire kitchen or lost to the looming threat of sausage bursts.
-        <br /> Then it gets pressed into a nice, sortable table.
+        I try to rank every sausage that is given a score during the video.
+        All data is pulled from the uploaded videos on
+        <a href="https://www.youtube.com/c/OrdinarySausage/featured" target="_blank" rel="noopener">Ordinary Sausage's YouTube channel</a>.
+      </p>
+
+      <p>
+        Would you like to know all about upcoming sausages? Maybe even decide what gets sausaged next? <br>
+        Then visit Ordinary Sausage's Patreon to learn more!
       </p>
 
       <CTA
-          message="test"
-          link="test"
+          message="Go To Patreon"
+          link="https://www.patreon.com/ordinarysausage"
       />
     </section>
 
@@ -81,7 +80,7 @@
 
     <section>
       <Headline
-          message="Another Block"
+          message="Latest Sausage Videos"
           :tag="2"
       />
 
@@ -99,14 +98,20 @@
       />
 
       <p>
-        Quisque velit nisi, pretium ut lacinia in, elementum id enim. Curabitur aliquet quam id dui posuere blandit. Nulla porttitor accumsan tincidunt.
-        <br><br>
-        Cras ultricies ligula sed magna dictum porta.
+        Have you spotted an error on the site?<br><br>
+        Do you have an idea you would love to share?<br><br>
+        Would you like to know who in their right mind binges days of sausage making
+        content and then thinks 'How cool would all that look as a table!'?
       </p>
 
       <CTA
-          message="test"
-          link="test"
+          message="Contact me on Twitter"
+          link="https://twitter.com/login"
+      />
+
+      <CTA
+          message="Contact me via Mail"
+          link="https://twitter.com/login"
       />
     </section>
   </div>
