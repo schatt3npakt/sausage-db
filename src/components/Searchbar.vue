@@ -1,15 +1,77 @@
 <template>
-  <div class="searchbar">
-    <label class="searchbar__label" for="sausage-search">Search for a sausage name</label>
+  <div class="searchbar__wrapper">
+    <div class="searchbar">
+      <label class="searchbar__label" for="sausage-search">Search for a sausage name</label>
 
-    <input class="searchbar__input" type="text" name="sausage-search" id="sausage-search"  placeholder="SEARCH THOSE SAUSAGES!"/>
+      <form class="searchbar__form" @submit.prevent="scrollToAnchor(firstSearchResult)">
+        <input class="searchbar__input" v-model="searchBarValue" type="text" name="sausage-search" id="sausage-search"  placeholder="SEARCH THOSE SAUSAGES!">
+      </form>
 
-    <button class="searchbar__submit">Search</button>
+      <button class="searchbar__submit" @click="scrollToAnchor(firstSearchResult)">Search</button>
+    </div>
+
+    <div class="searchbar__results" :class="{hidden: searchBarValue.length <= 2}">
+      <a
+          :class="{selected: index === 0}"
+          v-for="(entry, index) in filteredArray"
+          @click="scrollToAnchor(kebabCase(entry.type))"
+          :key="entry.id">{{entry.type}}</a>
+    </div>
   </div>
 </template>
 
 <script>
+// data imports
+import * as madeDataJSON from '/data/madeSausages.json'
+
 export default {
+  computed: {
+    computedSearchbarValue: function () {
+      return this.kebabCase(this.searchBarValue)
+    },
+    filteredArray: function () {
+      return this.madeData.filter(entry => entry.type.toLowerCase().includes(this.lowerCaseSearchBarValue))
+    },
+    firstSearchResult: function () {
+      return this.kebabCase(this.filteredArray[0].type)
+    },
+    lowerCaseSearchBarValue: function () {
+      return this.searchBarValue.toLowerCase()
+    }
+  },
+  data: function () {
+    return {
+      madeData: madeDataJSON.data,
+      searchBarValue: ""
+    }
+  },
+  methods: {
+    kebabCase: function (string) {
+      return string.toLowerCase().replace(/\s+/g, '-')
+    },
+    scrollToAnchor: function (id) {
+      let target = document.getElementById(id)
+      let targetSidebar = document.getElementById(id + "-sidebar")
+      let tableRowItems = document.getElementsByClassName("table__row")
+      let sidebarItems = document.getElementsByClassName("table__sidebar__item")
+
+      for (let item of sidebarItems) {
+        item.classList.remove("is-current")
+      }
+
+      for (let item of tableRowItems) {
+        item.classList.remove("is-current")
+      }
+
+      target.scrollIntoView({
+        behavior: "smooth",
+        block: "center",
+        inline: "center"
+      })
+      target.classList.add('is-current')
+      targetSidebar.classList.add('is-current')
+    }
+  },
   name: 'Searchbar'
 }
 </script>
@@ -23,11 +85,17 @@ export default {
   max-width: 400px;
 }
 
+.searchbar__form {
+  height: 58px;
+  position: relative;
+}
+
 .searchbar__input {
   border-radius: 15px 0 0 15px;
+  border: none !important;
   font-family: 'Nunito', 'Arial' ,sans-serif;
+  font-size: 16px;
   font-weight: 700;
-  text-transform: uppercase;
   display: block;
   padding: 20px;
   width: 300px;
@@ -66,6 +134,7 @@ export default {
 .searchbar__submit:hover,
 .searchbar__submit:focus {
   background-color: var(--light-mode-button-hover-bg-color);
+  border: none;
 }
 
 .searchbar__submit::before {
@@ -79,5 +148,48 @@ export default {
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
+}
+
+.searchbar__wrapper {
+  margin: auto;
+  max-width: 400px;
+  position: relative;
+}
+
+.searchbar__results {
+  background-color: white;
+  border-radius: 15px;
+  box-shadow: 0 0 15px 0 var(--light-mode-search-bar-submit-bg-color);
+  height: 200px;
+  left: 0;
+  max-width: 400px;
+  overflow-y: auto;
+  position: absolute;
+  top: 65px;
+  transition: height 0.25s ease-out;
+  width: 100%;
+  z-index: 3;
+}
+
+.searchbar__results.hidden {
+  height: 0;
+}
+
+.searchbar__results a {
+  color: black;
+  cursor: pointer;
+  display: block;
+  font-family: 'Nunito', 'Arial' , sans-serif;
+  font-weight: 700;
+  padding: 10px 20px;
+  transition: background-color 0.25s ease-out;
+}
+
+.searchbar__results a:hover {
+  background-color: #e5e5e5;
+}
+
+.searchbar__results:not(:hover) a.selected {
+  background-color: #e5e5e5;
 }
 </style>

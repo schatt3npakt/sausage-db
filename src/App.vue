@@ -24,7 +24,7 @@
         Let's list those sausages!
       </p>
 
-      <!-- <Searchbar />-->
+      <Searchbar />
     </section>
 
     <Divider />
@@ -118,7 +118,7 @@ import CTA from "./components/CTA";
 import Divider from "./components/Divider";
 import Headline from './components/Headline.vue'
 import SausageStats from "./components/SausageStats";
-// import Searchbar from "./components/Searchbar";
+import Searchbar from "./components/Searchbar";
 import Table from './components/Table.vue'
 import VideoSlider from "./components/VideoSlider";
 
@@ -133,7 +133,7 @@ export default {
     Divider,
     Headline,
     SausageStats,
-    // Searchbar,
+    Searchbar,
     Table,
     VideoSlider
   },
@@ -142,7 +142,7 @@ export default {
       madeData: madeDataJSON.data,
       sausageStats: [
         {id: 0, value: "100", message: "Sausages made!"},
-        {id: 1, value: "9", message: "5/5 Sausages!"},
+        {id: 1, value: "10", message: "5/5 Sausages!"},
         {id: 2, value: "23", message: "No-Burst-Streak!"}
       ],
       videos: [

@@ -1,5 +1,4 @@
 <template>
-
   <div class="table__wrapper">
     <div class="table__sidebar">
       <div class="table__sidebar__inner">
@@ -15,14 +14,15 @@
         </span>
         <span
             v-for="entry in sortedSausages"
+            class="table__sidebar__item"
             :key="entry.id"
-            :id="kebabCase(entry.type)"
+            :id="kebabCase(entry.type) + '-sidebar'"
         >{{ entry.type }}
       </span>
       </div>
     </div>
 
-    <div class="table__data-wrapper">
+    <div class="table__data-wrapper" id="madeTable">
       <table class="table" cellpadding="0" cellspacing="0">
         <tr class="table__header-wrapper">
           <th
@@ -92,8 +92,10 @@
         </tr>
 
         <tr
+            class="table__row"
             v-for="entry in sortedSausages"
             :key="entry.id"
+            :id="kebabCase(entry.type)"
         >
           <td>
             <span v-if="entry.id < 10">00{{ entry.id }}</span>
@@ -111,6 +113,7 @@
             <span v-else-if="entry.dibl === 1.5">0.5/5 Mark Ruffalos</span>
             <span v-else-if="entry.dibl === 2">1/5 Mark Ruffalos</span>
             <span v-else-if="entry.dibl === 3">2/5 Mark Ruffalos</span>
+            <span v-else-if="entry.dibl === 3.5">2.5/5 Mark Ruffalos</span>
             <span v-else-if="entry.dibl === 4">3/5 Mark Ruffalos</span>
             <span v-else-if="entry.dibl === 5">4/5 Mark Ruffalos</span>
             <span v-else-if="entry.dibl === 6">5/5 Mark Ruffalos</span>
@@ -149,7 +152,6 @@
 </template>
 
 <script>
-
 // Sorting: https://www.raymondcamden.com/2018/02/08/building-table-sorting-and-pagination-in-vuejs
 
 export default {
@@ -215,8 +217,9 @@ function tableScroll() {
 }
 
 .table__header-wrapper {
+  left: -1px;
   position: sticky;
-  top: 0;
+  top: -1px;
 }
 
 .table__sidebar {
@@ -233,6 +236,12 @@ function tableScroll() {
 .table__sidebar span {
   display: block;
   white-space: nowrap;
+}
+
+.table__sidebar span.is-current {
+  animation-name: highlightSidebar;
+  animation-duration: 0.5s;
+  animation-iteration-count: 7;
 }
 
 .table__wrapper {
@@ -309,6 +318,40 @@ span {
   th,
   span {
     font-size: 14px;
+  }
+}
+
+tr.is-current {
+  animation-name: highlightRow;
+  animation-duration: 0.5s;
+  animation-iteration-count: 7;
+}
+
+@keyframes highlightRow {
+  0% {
+    background-color: rgb(255, 255, 255);
+  }
+
+  50% {
+    background-color: rgb(235, 235, 235);
+  }
+
+  100% {
+    background-color: rgb(255, 255, 255);
+  }
+}
+
+@keyframes highlightSidebar {
+  0% {
+    background-color: #084361;
+  }
+
+  50% {
+    background-color: #0b4f72;
+  }
+
+  100% {
+    background-color: #084361;
   }
 }
 </style>

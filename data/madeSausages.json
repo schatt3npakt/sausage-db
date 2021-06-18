@@ -1006,7 +1006,7 @@
       "episode": "YouTube Comments Suggestions 2: Butter Sausage",
       "episodeID": "qRSglAEMJ-s",
       "episodeType":  8,
-      "episodeLength": "1:00"
+      "episodeLength": "01:00"
     },
     {
       "id": 85,
@@ -1138,7 +1138,7 @@
       "episode": "YouTube Comments Suggestions 4: Reverse Hot Dog Sausage",
       "episodeID": "Hxjxunvpdlk",
       "episodeType": 8,
-      "episodeLength": "0:59"
+      "episodeLength": "01:00"
     },
     {
       "id": 96,
@@ -1341,8 +1341,164 @@
       "song": "YMCA",
       "episode": "Chef Boyardee Beef Ravioli Sausage",
       "episodeID": "s4WI9zeJjz4",
-      "episodeType": 2,
+      "episodeType": 6,
       "episodeLength": "04:37"
+    },
+    {
+      "id": 113,
+      "type": "Sonic Footlong Chili Dog",
+      "rating": 5,
+      "dibl": 2,
+      "dibu": 1,
+      "song": "Soak Up the Sun, Waterfalls",
+      "episode": "Sonic Footlong Chili Dog Sausage",
+      "episodeID": "OH7ZZQcw7tI",
+      "episodeType": 6,
+      "episodeLength": "03:42"
+    },
+    {
+      "id": 114,
+      "type": "Cinnamon Roll (Ground)",
+      "rating": 4,
+      "dibl": -1,
+      "dibu": 1,
+      "song": "- No Song -",
+      "episode": "Cinnamon Roll Sausage",
+      "episodeID": "9LblZcUQsqY",
+      "episodeType": 8,
+      "episodeLength": "01:00"
+    },
+    {
+      "id": 115,
+      "type": "Cinnamon Roll (Baked)",
+      "rating": 0,
+      "dibl": -1,
+      "dibu": 1,
+      "song": "- No Song -",
+      "episode": "Cinnamon Roll Sausage",
+      "episodeID": "9LblZcUQsqY",
+      "episodeType": 8,
+      "episodeLength": "01:00"
+    },
+    {
+      "id": 116,
+      "type": "Cinnamon Roll (Raw)",
+      "rating": 0,
+      "dibl": -1,
+      "dibu": 1,
+      "song": "- No Song -",
+      "episode": "Cinnamon Roll Sausage",
+      "episodeID": "9LblZcUQsqY",
+      "episodeType": 8,
+      "episodeLength": "01:00"
+    },
+    {
+      "id": 117,
+      "type": "Shepherd's Pie",
+      "rating": 3,
+      "dibl": 3.5,
+      "dibu": 0,
+      "song": "Danny Boy, With Or Without You, We Didn't Start The Fire",
+      "episode": "Shepherd's Pie Sausage",
+      "episodeID": "noUl0VUhYns",
+      "episodeType": 6,
+      "episodeLength": "06:47"
+    },
+    {
+      "id": 118,
+      "type": "Alligator",
+      "rating": 4,
+      "dibl": 3,
+      "dibu": 0,
+      "song": "Crocodile Rock, Sunrise",
+      "episode": "Alligator Sausage",
+      "episodeID": "W1uiCW7EDeg",
+      "episodeType": 6,
+      "episodeLength": "04:03"
+    },
+    {
+      "id": 119,
+      "type": "Oreo",
+      "rating": 1,
+      "dibl": -1,
+      "dibu": 1,
+      "song": "Another One Bites the Dust",
+      "episode": "YouTube Comments Suggestions 10: Oreo Sausage",
+      "episodeID": "2LWvq9SVetc",
+      "episodeType": 8,
+      "episodeLength": "01:00"
+    },
+    {
+      "id": 120,
+      "type": "Full English Breakfast",
+      "rating": 1.5,
+      "dibl": 2,
+      "dibu": 1,
+      "song": "The Pirates of Penzance: Act I. 'I am the very model of a modern Major-General', Octopus’s Garden",
+      "episode": "Full English Breakfast Sausage",
+      "episodeID": "lClgYiYqnD8",
+      "episodeType": 6,
+      "episodeLength": "05:02"
+    },
+    {
+      "id": 121,
+      "type": "Spam",
+      "rating": 0,
+      "dibl": 0,
+      "dibu": 1,
+      "song": "Walking on Sunshine, Personal Jesus",
+      "episode": "Spam Sausage",
+      "episodeID": "aw_1N0RKoc4",
+      "episodeType": 6,
+      "episodeLength": "04:18"
+    },
+    {
+      "id": 122,
+      "type": "Garlic",
+      "rating": 0,
+      "dibl": 0,
+      "dibu": 0,
+      "song": "- No Song -",
+      "episode": "YouTube Comments Suggestions 11: Garlic Sausage",
+      "episodeID": "Y8Y2uP5qhFI",
+      "episodeType": 8,
+      "episodeLength": "01:00"
+    },
+    {
+      "id": 123,
+      "type": "Lasagna",
+      "rating": 1.5,
+      "dibl": 4,
+      "dibu": 1,
+      "song": "Listen To The Music, Breakfast At Tiffany's",
+      "episode": "Lasagna Sausage",
+      "episodeID": "iLykeLINlrY",
+      "episodeType": 6,
+      "episodeLength": "05:27"
+    },
+    {
+      "id": 124,
+      "type": "Panda Express Broccoli Beef",
+      "rating": 2.5,
+      "dibl": 6,
+      "dibu": 0,
+      "song": "Smells Like Teen Spirit, Chip 'N Dale's Rescue Rangers Theme",
+      "episode": "Panda Express Broccoli Beef Sausage",
+      "episodeID": "_VSuY2gXFN8",
+      "episodeType": 6,
+      "episodeLength": "04:32"
+    },
+    {
+      "id": 125,
+      "type": "Poptart",
+      "rating": 1,
+      "dibl": -1,
+      "dibu": 1,
+      "song": "",
+      "episode": "YouTube Comments Suggestions 12: Strawberry Poptart Sausage",
+      "episodeID": "Soz0m3c6G_I",
+      "episodeType": 8,
+      "episodeLength": "01:00"
     }
   ]
 }
