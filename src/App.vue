@@ -47,7 +47,7 @@
       <Table :sausageData="madeData"/>
 
       <p>
-        The database was last updated on <b>01.01.2021</b>
+        The database was last updated on <b>20.06.2021</b>
       </p>
     </section>
 
@@ -104,14 +104,14 @@
         content and then thinks 'How cool would all that look as a table!'?
       </p>
 
-      <CTA
+      <!--<CTA
           message="Contact me on Twitter"
           link="https://twitter.com/login"
-      />
+      />-->
 
       <CTA
           message="Contact me via Mail"
-          link="https://twitter.com/login"
+          link="mailto:	contact@bitheart.de"
       />
     </section>
   </div>
@@ -146,14 +146,15 @@ export default {
     return {
       madeData: madeDataJSON.data,
       sausageStats: [
-        {id: 0, value: "100", message: "Sausages made!"},
-        {id: 1, value: "10", message: "5/5 Sausages!"},
-        {id: 2, value: "23", message: "No-Burst-Streak!"}
+        {id: 0, value: "182", message: "Sausages made!"},
+        {id: 1, value: "15", message: "5/5 Sausages!"},
+        {id: 2, value: "1", message: "No-Burst-Streak!"}
       ],
       videos: [
-        {id: 0, videoID: "nLheOsNHVTY"},
-        {id: 1, videoID: "cnhhGk_ALeg"},
-        {id: 2, videoID: "nLheOsNHVTY"}
+        {id: 0, videoID: "FKDhWLLzv-g"},
+        {id: 1, videoID: "LkY_TttvxSw"},
+        {id: 2, videoID: "4QX0TDio8wY"},
+        {id: 2, videoID: "ZkqzDs9jIKU"}
       ]
     };
   }

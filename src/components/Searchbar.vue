@@ -185,7 +185,8 @@ export default {
   transition: background-color 0.25s ease-out;
 }
 
-.searchbar__results a:hover {
+.searchbar__results a:hover,
+.searchbar__results a:focus {
   background-color: #e5e5e5;
 }
 

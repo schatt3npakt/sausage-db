@@ -1,6 +1,6 @@
 <template>
   <div class="cta">
-    <a class="cta__button" href="{{link}}" rel="noopener">{{message}}</a>
+    <a class="cta__button" :href="link" target="_blank" rel="noopener">{{message}}</a>
   </div>
 </template>
 

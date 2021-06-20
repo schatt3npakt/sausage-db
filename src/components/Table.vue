@@ -120,7 +120,8 @@
           </td>
           <td>
             <span v-if="entry.dibl === -1">Not Done</span>
-            <span v-else-if="entry.dibl === 0">No</span>
+            <span v-else-if="entry.dibl === 0">No (No Rating)</span>
+            <span v-else-if="entry.dibl === 0.2">0/5 Mark Ruffalos</span>
             <span v-else-if="entry.dibl === 1">Yes (No Rating)</span>
             <span v-else-if="entry.dibl === 1.5">0.5/5 Mark Ruffalos</span>
             <span v-else-if="entry.dibl === 2">1/5 Mark Ruffalos</span>
@@ -317,6 +318,10 @@ th {
 
 td span {
   padding: 0;
+}
+
+td a {
+  color: black;
 }
 
 td,
