@@ -148,7 +148,8 @@ export default {
       sausageStats: [
         {id: 0, value: "182", message: "Sausages made!"},
         {id: 1, value: "15", message: "5/5 Sausages!"},
-        {id: 2, value: "1", message: "No-Burst-Streak!"}
+        {id: 2, value: "1", message: "Current \n No-Burst-Streak!"},
+        {id: 2, value: "6", message: "Longest \n No-Burst-Streak!"}
       ],
       videos: [
         {id: 0, videoID: "FKDhWLLzv-g"},
