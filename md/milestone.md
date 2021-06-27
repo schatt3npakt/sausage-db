@@ -10,23 +10,26 @@
 - Sausage Stats Component
 - General Page Styling
 - Table Component
+- Search Bar
+- structured Data
+- Fix background animation
 
 ___
 
 ##Features
 
 ###MUST
-- Search Bar
-- structured Data
-- Fix background animation
-  Set Timeout after sorting
 - DOCUMENTATION!
-- get views from API
+- text styling
+- animation stop
+- Zitate Array
+- Cycling Zitate
 
 ###SHOULD
 
 ###COULD
 - Sausage API
 - Dark Mode
+- Set Timedisplay according to region
 
 ___

@@ -1,6 +1,7 @@
 <template>
-  <div class="site-wrapper">
+  <div class="site-wrapper" id="siteWrapper">
     <BackToTop />
+    <SausageReel :sausageData="madeData" />
 
     <section>
       <Headline
@@ -47,7 +48,7 @@
       <Table :sausageData="madeData"/>
 
       <p>
-        The database was last updated on <b>20.06.2021</b>
+        The database was last updated on <b>25.06.2021</b>
       </p>
     </section>
 
@@ -104,14 +105,9 @@
         content and then thinks 'How cool would all that look as a table!'?
       </p>
 
-      <!--<CTA
-          message="Contact me on Twitter"
-          link="https://twitter.com/login"
-      />-->
-
       <CTA
-          message="Contact me via Mail"
-          link="mailto:	contact@bitheart.de"
+          message="Contact me on Twitter"
+          link="https://twitter.com/LucaLaFuria"
       />
     </section>
   </div>
@@ -122,6 +118,7 @@ import BackToTop from "./components/Back-To-Top";
 import CTA from "./components/CTA";
 import Divider from "./components/Divider";
 import Headline from './components/Headline.vue'
+import SausageReel from "./components/SausageReel";
 import SausageStats from "./components/SausageStats";
 import Searchbar from "./components/Searchbar";
 import Table from './components/Table.vue'
@@ -137,6 +134,7 @@ export default {
     CTA,
     Divider,
     Headline,
+    SausageReel,
     SausageStats,
     Searchbar,
     Table,
@@ -146,16 +144,16 @@ export default {
     return {
       madeData: madeDataJSON.data,
       sausageStats: [
-        {id: 0, value: "182", message: "Sausages made!"},
+        {id: 0, value: "184", message: "Sausages made!"},
         {id: 1, value: "15", message: "5/5 Sausages!"},
-        {id: 2, value: "1", message: "Current \n No-Burst-Streak!"},
+        {id: 2, value: "3", message: "Current \n No-Burst-Streak!"},
         {id: 2, value: "6", message: "Longest \n No-Burst-Streak!"}
       ],
       videos: [
-        {id: 0, videoID: "FKDhWLLzv-g"},
-        {id: 1, videoID: "LkY_TttvxSw"},
-        {id: 2, videoID: "4QX0TDio8wY"},
-        {id: 2, videoID: "ZkqzDs9jIKU"}
+        {id: 0, videoID: "dM-7Q6xK5gk"},
+        {id: 1, videoID: "pg9BXgySCqQ"},
+        {id: 2, videoID: "FKDhWLLzv-g"},
+        {id: 3, videoID: "LkY_TttvxSw"}
       ]
     };
   }
@@ -188,10 +186,26 @@ body {
 }
 
 .site-wrapper {
-  margin: 50px auto;
+  margin: auto;
   max-width: 1440px;
-  padding: 0 10px;
+  padding: 10px;
+  overflow-x: hidden;
   z-index: 2;
+}
+
+@media screen and (min-width: 600px) {
+  .site-wrapper {
+    max-width: 1440px;
+    padding: 50px 25px;
+  }
+}
+
+.site-wrapper > *:not(.sausage-reel, .back-to-top-button, .sausage-reel__text, #sausageReelCanvas) {
+  transition: filter 0.5s ease-out;
+}
+
+.site-wrapper__sausage-reel--active > *:not(.sausage-reel, .back-to-top-button, .sausage-reel__text, #sausageReelCanvas) {
+  filter: blur(5px);
 }
 
 p,
@@ -226,12 +240,23 @@ p {
   z-index: -1;
 }
 
-@media screen and (min-width: 600px) {
-  .site-wrapper {
-    margin: 50px auto;
-    max-width: 1440px;
-    padding: 0 25px;
-  }
+.site-wrapper::after {
+  background-color: black;
+  content: "";
+  display: block;
+  height: 200vh;
+  left: -125px;
+  opacity: 0;
+  pointer-events: none;
+  position: fixed;
+  top: -125px;
+  transition: opacity 0.5s ease-out;
+  width: 200vw;
+  z-index: 1;
+}
+
+.site-wrapper.site-wrapper__sausage-reel--active::after {
+  opacity: 0.5;
 }
 
 @keyframes background-animation {

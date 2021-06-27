@@ -27,3 +27,11 @@ Episode type
     - Collaboration
     - Other
 Episode duration
+
+## Update Process
+
+- update JSON
+- Update edit date on table
+- update sausage count
+- update burst streak
+- update video slider

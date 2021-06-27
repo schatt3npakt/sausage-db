@@ -44,14 +44,18 @@ export default {
   right: 20px;
   text-decoration: none;
   text-transform: uppercase;
-  transition: background-color 0.25s ease-out, opacity 0.25s ease-out;
-  z-index: 2;
+  transition: background-color 0.25s ease-out, opacity 0.25s ease-out, transform 0.25s ease-out;
+  z-index: 3;
 }
 
 .back-to-top-button:active,
 .back-to-top-button:hover,
 .back-to-top-button:focus {
   background-color: var(--light-mode-button-hover-bg-color);
+}
+
+.back-to-top-button:active {
+  transform: scale(0.95);
 }
 
 .hide {

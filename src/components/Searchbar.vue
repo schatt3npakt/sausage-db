@@ -79,14 +79,20 @@ export default {
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
 .searchbar {
-  box-shadow: 0 0 15px 0 var(--light-mode-search-bar-submit-bg-color);
   display: flex;
   margin: 40px auto;
-  max-width: 400px;
+  max-width: 350px;
+}
+
+@media (min-width: 600px) {
+  .searchbar {
+    max-width: 400px;
+  }
 }
 
 .searchbar__form {
-  height: 58px;
+  box-shadow: 0 0 15px 0 var(--light-mode-search-bar-submit-bg-color);
+  height: 56px;
   position: relative;
 }
 
@@ -97,8 +103,14 @@ export default {
   font-size: 16px;
   font-weight: 700;
   display: block;
-  padding: 20px;
-  width: 300px;
+  width: 250px;
+  padding: 18px;
+}
+
+@media (min-width: 600px) {
+  .searchbar__input {
+    width: 300px;
+  }
 }
 
 .searchbar__input:active,

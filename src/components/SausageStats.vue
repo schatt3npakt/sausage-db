@@ -21,6 +21,11 @@ export default {
 .sausage-stats {
   justify-content: center;
   display: flex;
+  flex-wrap: wrap;
+}
+
+.sausage-stats:not(:first-of-type) {
+  margin-top: 30px;
 }
 
 .sausage-stats__item {
