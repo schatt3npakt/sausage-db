@@ -1,7 +1,7 @@
 <template>
   <div class="site-wrapper" id="siteWrapper">
     <BackToTop />
-    <SausageReel :sausageData="madeData" />
+    <!-- <SausageReel :sausageData="madeData" /> -->
 
     <section>
       <Headline
@@ -48,7 +48,7 @@
       <Table :sausageData="madeData"/>
 
       <p>
-        The database was last updated on <b>25.06.2021</b>
+        The database was last updated on <b>27.06.2021</b>
       </p>
     </section>
 
@@ -118,7 +118,7 @@ import BackToTop from "./components/Back-To-Top";
 import CTA from "./components/CTA";
 import Divider from "./components/Divider";
 import Headline from './components/Headline.vue'
-import SausageReel from "./components/SausageReel";
+// import SausageReel from "./components/SausageReel";
 import SausageStats from "./components/SausageStats";
 import Searchbar from "./components/Searchbar";
 import Table from './components/Table.vue'
@@ -134,7 +134,7 @@ export default {
     CTA,
     Divider,
     Headline,
-    SausageReel,
+    // SausageReel,
     SausageStats,
     Searchbar,
     Table,
@@ -144,16 +144,16 @@ export default {
     return {
       madeData: madeDataJSON.data,
       sausageStats: [
-        {id: 0, value: "184", message: "Sausages made!"},
+        {id: 0, value: "185", message: "Sausages made!"},
         {id: 1, value: "15", message: "5/5 Sausages!"},
-        {id: 2, value: "3", message: "Current \n No-Burst-Streak!"},
+        {id: 2, value: "4", message: "Current \n No-Burst-Streak!"},
         {id: 2, value: "6", message: "Longest \n No-Burst-Streak!"}
       ],
       videos: [
-        {id: 0, videoID: "dM-7Q6xK5gk"},
-        {id: 1, videoID: "pg9BXgySCqQ"},
-        {id: 2, videoID: "FKDhWLLzv-g"},
-        {id: 3, videoID: "LkY_TttvxSw"}
+        {id: 0, videoID: "nxraLRC4Jz8"},
+        {id: 1, videoID: "dM-7Q6xK5gk"},
+        {id: 2, videoID: "pg9BXgySCqQ"},
+        {id: 3, videoID: "FKDhWLLzv-g"}
       ]
     };
   }
