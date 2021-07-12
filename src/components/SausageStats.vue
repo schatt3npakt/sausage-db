@@ -22,6 +22,7 @@ export default {
   justify-content: center;
   display: flex;
   flex-wrap: wrap;
+  margin: auto;
 }
 
 .sausage-stats:not(:first-of-type) {
@@ -38,6 +39,7 @@ export default {
   padding: 0 15px;
   text-align: center;
   text-transform: uppercase;
+  width: 190px;
 }
 
 .sausage-stats__item__value {

@@ -35,6 +35,10 @@
       <SausageStats
           :items="sausageStats"
       />
+
+      <SausageStats
+          :items="sausageStats2"
+      />
     </section>
 
     <Divider/>
@@ -48,7 +52,7 @@
       <Table :sausageData="madeData"/>
 
       <p>
-        The database was last updated on <b>27.06.2021</b>
+        The database was last updated on <b>13.07.2021</b>
       </p>
     </section>
 
@@ -144,16 +148,20 @@ export default {
     return {
       madeData: madeDataJSON.data,
       sausageStats: [
-        {id: 0, value: "185", message: "Sausages made!"},
-        {id: 1, value: "15", message: "5/5 Sausages!"},
-        {id: 2, value: "4", message: "Current \n No-Burst-Streak!"},
-        {id: 2, value: "6", message: "Longest \n No-Burst-Streak!"}
+        {id: 0, value: "193", message: "Sausages made!"},
+        {id: 1, value: "16", message: "5/5 Sausages!"},
+        {id: 2, value: "99", message: "Sausage Bursts!"},
+      ],
+      sausageStats2: [
+        {id: 0, value: "51,3%", message: "Burst-Ratio!"},
+        {id: 1, value: "1", message: "Current \n No-Burst Streak!"},
+        {id: 2, value: "9", message: "Longest \n No-Burst-Streak!"}
       ],
       videos: [
-        {id: 0, videoID: "nxraLRC4Jz8"},
-        {id: 1, videoID: "dM-7Q6xK5gk"},
-        {id: 2, videoID: "pg9BXgySCqQ"},
-        {id: 3, videoID: "FKDhWLLzv-g"}
+        {id: 0, videoID: "v2IZxFbpv0c"},
+        {id: 1, videoID: "mHf5LxakShg"},
+        {id: 2, videoID: "rl8C1gfhn8w"},
+        {id: 3, videoID: "sYuQSr34yvk"},
       ]
     };
   }

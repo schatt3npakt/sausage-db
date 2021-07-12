@@ -7,7 +7,9 @@
         <input class="searchbar__input" v-model="searchBarValue" type="text" name="sausage-search" id="sausage-search"  placeholder="SEARCH THOSE SAUSAGES!">
       </form>
 
-      <button class="searchbar__submit" @click="scrollToAnchor(firstSearchResult)">Search</button>
+      <button class="searchbar__submit" :class="{
+        isActive: (searchBarValue.length >= 2) ? 'isActive' : ''
+      }" @click="scrollToAnchor(firstSearchResult)">Search</button>
     </div>
 
     <div class="searchbar__results" :class="{hidden: searchBarValue.length <= 1}">
@@ -50,6 +52,10 @@ export default {
       return string.toLowerCase().replace(/\s+/g, '-')
     },
     scrollToAnchor: function (id) {
+      if (this.searchBarValue.length <= 1) {
+        return
+      }
+
       let target = document.getElementById(id)
       let targetSidebar = document.getElementById(id + "-sidebar")
       let tableRowItems = document.getElementsByClassName("table__row")
@@ -126,13 +132,13 @@ export default {
 }
 
 .searchbar__submit {
-  background-color: var(--light-mode-search-bar-submit-bg-color);
+  background-color: #acacac;
   border-radius: 0 15px 15px 0;
   border: none;
   color: transparent;
-  cursor: pointer;
+  cursor: not-allowed;
   display: block;
-  height: 59px;
+  height: 58px;
   margin: 0;
   padding: 0;
   position: relative;
@@ -142,9 +148,9 @@ export default {
   transition: background-color 0.25s ease-out;
 }
 
-.searchbar__submit:active,
-.searchbar__submit:hover,
-.searchbar__submit:focus {
+.searchbar__submit.isActive:active,
+.searchbar__submit.isActive:hover,
+.searchbar__submit.isActive:focus {
   background-color: var(--light-mode-button-hover-bg-color);
   border: none;
 }
@@ -160,6 +166,12 @@ export default {
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
+}
+
+.searchbar__submit.isActive {
+  background-color: var(--light-mode-search-bar-submit-bg-color);
+  cursor: pointer;
+  pointer-events: auto;
 }
 
 .searchbar__wrapper {

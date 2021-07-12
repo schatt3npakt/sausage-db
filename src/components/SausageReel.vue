@@ -4,37 +4,52 @@
   <div class="sausage-reel__text">
     <div
         class="sausage-reel__text__item"
-        v-for="sausage in sausages"
+        v-for="sausage in shuffleArray(sausages)"
         :key="sausage.id"
     >
       <h4 class="sausage-reel__headline">{{ sausage.type }}</h4>
-      <p class="sausage-reel__quote">Dolor sit amet</p>
-      <p class="sausage-reel__author">Ordinary Sausage, 04.04.1234</p>
+      <p class="sausage-reel__quote">{{ sausage.episodeQuote }}</p>
+      <p class="sausage-reel__author">- {{ sausage.episodeQuoteAuthor }} -</p>
     </div>
   </div>
 </template>
 
 <script>
+const currentTextItemClass = 'sausage-reel__text__item--current'
+let sausageReelCurrentId = 0
+let sausageReelTimeouts = []
+
 export default {
   data: function () {
     return {
-      sausages: this.shuffleArray(this.sausageData)
+      sausages: this.sausageData
     }
   },
   methods: {
-    animateTexts: function () {
-      const currentTextItemClass = 'sausage-reel__text__item--current';
+    clickHandler: function () {
       let textObjectCollection = document.querySelectorAll('.sausage-reel__text__item')
 
-      for (let item of textObjectCollection) {
-        item.classList.add(currentTextItemClass)
+      if (sessionStorage.getItem('animationRunning') === "true") {
+        for (let i = 0; i <= sausageReelTimeouts.length; i++) {
+          clearTimeout(sausageReelTimeouts[i])
+        }
+        for (let item of textObjectCollection) {
+          item.classList.remove(currentTextItemClass)
+        }
+
+        sausageReelCurrentId = this.getRandomInt(0, textObjectCollection.length)
+        this.toggleIsActiveClassPage()
+        this.dropSausages()
+        sessionStorage.setItem('animationRunning', 'false')
+        return
       }
-    },
-    clickHandler: function () {
+
       this.toggleIsActiveClassPage()
       this.dropSausages()
-      this.animateTexts()
+      sessionStorage.setItem('animationRunning', 'true')
+      sausageReelTimeouts.push(window.setTimeout(this.textClassAdd, 2000))
     },
+
     // https://www.cssscript.com/basic-snowflakes-falling-effect-javascript-canvas-snow-js/
     dropSausages: function () {
       const sausageImageSrc = "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAABgmlDQ1BzUkdCIElFQzYxOTY2LTIuMQAAKJF1kc8rRFEUxz/GjxEjyiTKYhJWiFETKYuRX4XFzCi/Nm+e+aHmzbzem0mTrbJVlNj4teAvYKuslSJSslPWxAY953lqJHNu557P/d57TveeC65IStXMsm7Q0lkjNBr0zczO+dyPVNCElwEaFNXUJ8MjEYra2w0ldrzqtGsVP/evVS/GTBVKKoUHVd3ICo8JTyxndZs3hb1qUlkUPhbuMOSCwte2HnX4yeaEwx82G5HQELjqhH2JXxz9xWrS0ITl5bRqqZz6cx/7JZ5YejossUW8GZMQowTxMc4wQwTooV/mAJ346ZIVRfK7v/OnyEiuKrNOHoMlEiTJ0iFqTqrHJMZFj8lIkbf7/7evZrzX71T3BKH8wbJe2sC9AZ/rlvW+b1mfB1B6D2fpQn5mD/peRV8vaK27ULsKJ+cFLboFp2vQeKcrhvItlYq74nF4PoKaWai/hKp5p2c/+xzeQmRFvuoCtnegXc7XLnwBtHBoCTwhlPMAAAAJcEhZcwAAQJcAAECXAeCX1DsAAAM5SURBVFiFtZddSBRRFIC/u7q7utkPlaBRimWRUFjgS0SQhZBGb74EQUEQBPPii9DDPMQQFAQGDRQE9dBDEEQPVkQQVARBPw9CIEGSUpkmFP2suu66t4c7MztzZ3bdbDovy545d853zzn3nDuCCJGG1Qu0AjPAhLDN11F2cYjQHPcDZ4Ddmt0j4LywzSf/DUAa1gngehQYIB1dd9wQCcf5Qce5iHDuAklgME7nHgAwEHCcErCtDtrSfq0ADknDOvo/ADpQO1Sazgy0pGBLGlrT+prTsQJIwxLAZty91idgdU3JYnMakl4YBLBPGtbO2ACADO7uAWpE2KIpqa+LLQ0JYZtZ4IenmS/6cZRsCABIoD82AOd3FNftgoRvhaDVyhpocE0RQLs0rL44AW7jr/fJfNiyOaVrzsUJcAt/4GfyUNDy0Jz014cAdknDMmIBELY5DTz0IIrAtBaFlID2wJGUwGVpWAf+GcCRayyVho0p/xF1bS9Iw2r7ZwBhm3eBKe/Jj0XIFoPWAuio15t1F3BzuRAJ7X+wFt7Nh1c0JGBrna7dCzyXhnU4DoCSfCvAl4hUtKT0egBoBoalYV2RhtVdLUBo8knDOguY3rOkgD0Nqgh1Gc/B+1zoFc7aCWAYtalxYZuT1QIIYAwo5bQpCTvqo7cwnVepWtDbp5dKd5T/BJ4CQ/47RdTsx+ly9wLPOzPQWBsNkZcKYioiXWEggEFhmxfLAjgQV4FTno07pteVgQCYK6qITBfg12IlGIABYZuXKgGsQaViraesBsKV2SJ8zaujnJPwveCPgQQ+Am1lARyIPuA+pcL6Owgd6O0c/AxE5ph+DAMibPMBavS6haTa9MgsfMiFx3YlySRgU2ig9VYEcCDuREKM5eBlVt9RZVkfiJoEWpcE0CCC8msRXmVhdD7ctqMkWJgCmKgKwAfRAzxDL6fPC/DiN7zJqqMY7glKwsd0pGIRlhPnHnAZf3HqsiIBq2pUB00l1PEMpksCLcsCcCD2o74njvjU1b5PAjeEbZ5cNoAPpAt1Sz6Ov2eUh/GcVzJaDkitA9KDuiNs10Ak8Ak1C4aWoowDqBH1id8MNKI+8x/rdn8A/TQJQ7P3ONIAAAAASUVORK5CYII="
@@ -46,6 +61,7 @@ export default {
       let maximumSausages = 250
       let sausageImage = new Image()
       let sausages = []
+      let vueThis = this
 
       ctx = canvas.getContext("2d");
       canvas.height = canvasHeight
@@ -66,18 +82,12 @@ export default {
         let speed = Math.random() + 1
         sausages.push({
           speed: speed,
-          rotation: getRandomInt(1, 360),
+          rotation: vueThis.getRandomInt(1, 360),
           rotationDirection: Math.round(Math.random()),
           size: speed * 17,
           x: Math.random() * canvasWidth,
           y: Math.random() * canvasHeight - canvasHeight
         })
-      }
-
-      function getRandomInt(min, max) {
-        min = Math.ceil(min);
-        max = Math.floor(max);
-        return Math.floor(Math.random() * (max - min) + min);
       }
 
       function drawSausages() {
@@ -108,7 +118,7 @@ export default {
 
           if (sausage.y > canvasHeight + 50) {
             sausages[i] = {
-              rotation: getRandomInt(1, 360),
+              rotation: vueThis.getRandomInt(1, 360),
               rotationDirection: Math.round(Math.random()),
               speed: sausage.speed,
               size: sausage.size,
@@ -128,6 +138,12 @@ export default {
       window.requestAnimationFrame(animationStep)
     },
 
+    getRandomInt: function (min, max) {
+      min = Math.ceil(min);
+      max = Math.floor(max);
+      return Math.floor(Math.random() * (max - min) + min);
+    },
+
     shuffleArray: function (array) {
       let currentIndex = array.length,  randomIndex;
 
@@ -144,6 +160,24 @@ export default {
       }
 
       return array;
+    },
+
+    textClassAdd: function () {
+      let textObjectCollection = document.querySelectorAll('.sausage-reel__text__item')
+      if (sausageReelCurrentId === textObjectCollection.length - 1) {
+        sausageReelCurrentId = 0
+      }
+
+      textObjectCollection.item(sausageReelCurrentId).classList.add(currentTextItemClass)
+      sausageReelTimeouts.push(window.setTimeout(this.textClassRemove,10000))
+    },
+
+    textClassRemove: function () {
+      let textObjectCollection = document.querySelectorAll('.sausage-reel__text__item')
+
+      textObjectCollection.item(sausageReelCurrentId).classList.remove(currentTextItemClass)
+      sausageReelCurrentId++
+      sausageReelTimeouts.push(window.setTimeout(this.textClassAdd,2000))
     },
 
     toggleIsActiveClassPage: function () {
@@ -214,11 +248,15 @@ export default {
 }
 
 .sausage-reel__text__item {
+  color: white;
   font-family: 'Bodoni Moda', serif;
-  opacity: 0;
+  font-size: 60px;
   left: 50%;
+  opacity: 0;
   pointer-events: none;
   position: fixed;
+  text-align: center;
+  text-shadow: 0 0 10px rgba(0, 0, 0, 0.7);
   top: 50%;
   transform: translate(-50%, -50%);
   transition: opacity 1s ease-in-out;
@@ -226,15 +264,59 @@ export default {
 }
 
 .sausage-reel__text__item--current {
-  color: white;
-  font-size: 60px;
   opacity: 1;
   pointer-events: auto;
-  text-shadow: 0 0 10px rgba(0, 0, 0, 0.7);
 }
 
 .sausage-reel__text__item * {
   font-family: 'Bodoni Moda', serif !important;
+}
+
+.sausage-reel__headline {
+  font-family: 'Bodoni Moda', serif !important;
+  font-size: 40px;
+  font-weight: 400;
+  hyphens: auto;
+  line-height: 1.3;
+  margin: 0 0 25px 0;
+}
+
+@media (min-width: 600px) {
+  .sausage-reel__headline {
+    font-size: 70px;
+    margin: 0 0 40px 0;
+  }
+}
+
+.sausage-reel__quote {
+  font-family: 'Bodoni Moda', serif !important;
+  font-size: 25px;
+  font-weight: 400;
+  hyphens: auto;
+  line-height: 1.3;
+  margin-bottom: 20px;
+}
+
+@media (min-width: 600px) {
+  .sausage-reel__quote {
+    font-size: 30px;
+    margin-bottom: 30px;
+  }
+}
+
+.sausage-reel__author {
+  font-family: 'Bodoni Moda', serif !important;
+  font-size: 15px;
+  font-weight: 400;
+  hyphens: auto;
+  line-height: 1.3;
+  margin-bottom: 0;
+}
+
+@media (min-width: 600px) {
+  .sausage-reel__author {
+    font-size: 17px;
+  }
 }
 
 #sausageReelCanvas {
