@@ -2701,6 +2701,20 @@
       "episodeID": "v2IZxFbpv0c",
       "episodeType": 8,
       "episodeLength": "01:00"
+    },
+    {
+      "id": 194,
+      "type": "Lamb Chops",
+      "rating": 4,
+      "dibl": 1,
+      "dibu": 0,
+      "song": "Such Great Heights",
+      "episode": "Lamb Chomps Sausage",
+      "episodeQuote": "test",
+      "episodeQuoteAuthor": "test2",
+      "episodeID": "ph0hjjN__gE",
+      "episodeType": 6,
+      "episodeLength": "04:16"
     }
   ]
 }

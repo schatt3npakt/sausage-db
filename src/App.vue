@@ -52,7 +52,7 @@
       <Table :sausageData="madeData"/>
 
       <p>
-        The database was last updated on <b>13.07.2021</b>
+        The database was last updated on <b>14.07.2021</b>
       </p>
     </section>
 
@@ -148,20 +148,20 @@ export default {
     return {
       madeData: madeDataJSON.data,
       sausageStats: [
-        {id: 0, value: "193", message: "Sausages made!"},
+        {id: 0, value: "194", message: "Sausages made!"},
         {id: 1, value: "16", message: "5/5 Sausages!"},
         {id: 2, value: "99", message: "Sausage Bursts!"},
       ],
       sausageStats2: [
-        {id: 0, value: "51,3%", message: "Burst-Ratio!"},
-        {id: 1, value: "1", message: "Current \n No-Burst Streak!"},
+        {id: 0, value: "51,03%", message: "Burst-Ratio!"},
+        {id: 1, value: "2", message: "Current \n No-Burst Streak!"},
         {id: 2, value: "9", message: "Longest \n No-Burst-Streak!"}
       ],
       videos: [
-        {id: 0, videoID: "v2IZxFbpv0c"},
-        {id: 1, videoID: "mHf5LxakShg"},
-        {id: 2, videoID: "rl8C1gfhn8w"},
-        {id: 3, videoID: "sYuQSr34yvk"},
+        {id: 0, videoID: "ph0hjjN__gE"},
+        {id: 1, videoID: "v2IZxFbpv0c"},
+        {id: 2, videoID: "mHf5LxakShg"},
+        {id: 3, videoID: "rl8C1gfhn8w"}
       ]
     };
   }
