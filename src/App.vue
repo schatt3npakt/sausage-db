@@ -50,10 +50,6 @@
       />
 
       <Table :sausageData="madeData"/>
-
-      <p>
-        The database was last updated on <b>14.07.2021</b>
-      </p>
     </section>
 
     <Divider/>
@@ -65,7 +61,6 @@
       />
 
       <p>
-        I try to rank every sausage that is given a score during the video.
         All data is pulled from the uploaded videos on
         <a href="https://www.youtube.com/c/OrdinarySausage/featured" target="_blank" rel="noopener">Ordinary Sausage's YouTube channel</a>.
       </p>
@@ -83,6 +78,7 @@
 
     <Divider />
 
+    <!--
     <section>
       <Headline
           message="Latest Sausage Videos"
@@ -95,7 +91,7 @@
     </section>
 
     <Divider />
-
+-->
     <section>
       <Headline
           message="Contact"
@@ -126,7 +122,7 @@ import Headline from './components/Headline.vue'
 import SausageStats from "./components/SausageStats";
 import Searchbar from "./components/Searchbar";
 import Table from './components/Table.vue'
-import VideoSlider from "./components/VideoSlider";
+// import VideoSlider from "./components/VideoSlider";
 
 // data imports
 import * as madeDataJSON from '/data/madeSausages.json'
@@ -142,19 +138,19 @@ export default {
     SausageStats,
     Searchbar,
     Table,
-    VideoSlider
+    // VideoSlider
   },
   data: function() {
     return {
       madeData: madeDataJSON.data,
       sausageStats: [
-        {id: 0, value: "194", message: "Sausages made!"},
+        {id: 0, value: "201", message: "Sausages made!"},
         {id: 1, value: "16", message: "5/5 Sausages!"},
-        {id: 2, value: "99", message: "Sausage Bursts!"},
+        {id: 2, value: "100", message: "Sausage Bursts!"},
       ],
       sausageStats2: [
         {id: 0, value: "51,03%", message: "Burst-Ratio!"},
-        {id: 1, value: "2", message: "Current \n No-Burst Streak!"},
+        {id: 1, value: "3", message: "Current \n No-Burst Streak!"},
         {id: 2, value: "9", message: "Longest \n No-Burst-Streak!"}
       ],
       videos: [
