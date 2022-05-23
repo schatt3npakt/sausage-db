@@ -4,21 +4,25 @@
     <!-- <SausageReel :sausageData="madeData" /> -->
 
     <section>
-      <Headline
-          message="The Sausage Database"
-          :tag="1"
-      />
+      <Headline message="The Sausage Database" :tag="1" />
 
       <p>
         The Sausage Database is a fan project dedicated to listing
-        <a href="https://www.youtube.com/c/OrdinarySausage/featured" target="_blank" rel="noopener">Ordinary Sausage's</a>
+        <a
+          href="https://www.youtube.com/c/OrdinarySausage/featured"
+          target="_blank"
+          rel="noopener"
+          >Ordinary Sausage's</a
+        >
         sausage creations.
       </p>
 
       <p>
-        It collects data about everything that has been forced through a grinder,
-        projectiled across the entire kitchen or lost to the ever looming threat of sausage bursts.
-        <br /> Then it gets pressed into a nice, sortable table.
+        It collects data about everything that has been forced through a
+        grinder, projectiled across the entire kitchen or lost to the ever
+        looming threat of sausage bursts.
+        <br />
+        Then it gets pressed into a nice, sortable table.
       </p>
 
       <Searchbar />
@@ -27,52 +31,45 @@
     <Divider />
 
     <section>
-      <Headline
-          message="Sausage Stats"
-          :tag="2"
-      />
+      <Headline message="Sausage Stats" :tag="2" />
 
-      <SausageStats
-          :items="sausageStats"
-      />
+      <SausageStats :items="sausageStats" />
 
-      <SausageStats
-          :items="sausageStats2"
-      />
+      <SausageStats :items="sausageStats2" />
     </section>
 
-    <Divider/>
+    <Divider />
 
     <section>
-      <Headline
-          message="Made Sausages"
-          :tag="2"
-      />
+      <Headline message="Made Sausages" :tag="2" />
 
-      <Table :sausageData="madeData"/>
+      <Table :sausageData="madeData" />
     </section>
 
-    <Divider/>
+    <Divider />
 
     <section>
-      <Headline
-          message="The Data"
-          :tag="2"
-      />
+      <Headline message="The Data" :tag="2" />
 
       <p>
         All data is pulled from the uploaded videos on
-        <a href="https://www.youtube.com/c/OrdinarySausage/featured" target="_blank" rel="noopener">Ordinary Sausage's YouTube channel</a>.
+        <a
+          href="https://www.youtube.com/c/OrdinarySausage/featured"
+          target="_blank"
+          rel="noopener"
+          >Ordinary Sausage's YouTube channel</a
+        >.
       </p>
 
       <p>
-        Would you like to know all about upcoming sausages? Maybe even decide what gets sausaged next? <br>
+        Would you like to know all about upcoming sausages? Maybe even decide
+        what gets sausaged next? <br />
         Then visit Ordinary Sausage's Patreon to learn more!
       </p>
 
       <CTA
-          message="Go To Patreon"
-          link="https://www.patreon.com/ordinarysausage"
+        message="Go To Patreon"
+        link="https://www.patreon.com/ordinarysausage"
       />
     </section>
 
@@ -93,21 +90,19 @@
     <Divider />
 -->
     <section>
-      <Headline
-          message="Contact"
-          :tag="2"
-      />
+      <Headline message="Contact" :tag="2" />
 
       <p>
-        Have you spotted an error on the site?<br><br>
-        Do you have an idea you would love to share?<br><br>
-        Would you like to know who in their right mind binges days of sausage making
-        content and then thinks 'How cool would all that look as a table!'?
+        Have you spotted an error on the site?<br /><br />
+        Do you have an idea you would love to share?<br /><br />
+        Would you like to know who in their right mind binges days of sausage
+        making content and then thinks 'How cool would all that look as a
+        table!'?
       </p>
 
       <CTA
-          message="Contact me on Twitter"
-          link="https://twitter.com/LucaLaFuria"
+        message="Contact me on Twitter"
+        link="https://twitter.com/thebitheart"
       />
     </section>
   </div>
@@ -117,18 +112,18 @@
 import BackToTop from "./components/Back-To-Top";
 import CTA from "./components/CTA";
 import Divider from "./components/Divider";
-import Headline from './components/Headline.vue'
+import Headline from "./components/Headline.vue";
 // import SausageReel from "./components/SausageReel";
 import SausageStats from "./components/SausageStats";
 import Searchbar from "./components/Searchbar";
-import Table from './components/Table.vue'
+import Table from "./components/Table.vue";
 // import VideoSlider from "./components/VideoSlider";
 
 // data imports
-import * as madeDataJSON from '/data/madeSausages.json'
+import * as madeDataJSON from "/data/madeSausages.json";
 
 export default {
-  name: 'App',
+  name: "App",
   components: {
     BackToTop,
     CTA,
@@ -137,41 +132,41 @@ export default {
     // SausageReel,
     SausageStats,
     Searchbar,
-    Table,
+    Table
     // VideoSlider
   },
   data: function() {
     return {
       madeData: madeDataJSON.data,
       sausageStats: [
-        {id: 0, value: "201", message: "Sausages made!"},
-        {id: 1, value: "16", message: "5/5 Sausages!"},
-        {id: 2, value: "100", message: "Sausage Bursts!"},
+        { id: 0, value: "201", message: "Sausages made!" },
+        { id: 1, value: "16", message: "5/5 Sausages!" },
+        { id: 2, value: "100", message: "Sausage Bursts!" }
       ],
       sausageStats2: [
-        {id: 0, value: "51,03%", message: "Burst-Ratio!"},
-        {id: 1, value: "3", message: "Current \n No-Burst Streak!"},
-        {id: 2, value: "9", message: "Longest \n No-Burst-Streak!"}
+        { id: 0, value: "51,03%", message: "Burst-Ratio!" },
+        { id: 1, value: "3", message: "Current \n No-Burst Streak!" },
+        { id: 2, value: "9", message: "Longest \n No-Burst-Streak!" }
       ],
       videos: [
-        {id: 0, videoID: "ph0hjjN__gE"},
-        {id: 1, videoID: "v2IZxFbpv0c"},
-        {id: 2, videoID: "mHf5LxakShg"},
-        {id: 3, videoID: "rl8C1gfhn8w"}
+        { id: 0, videoID: "ph0hjjN__gE" },
+        { id: 1, videoID: "v2IZxFbpv0c" },
+        { id: 2, videoID: "mHf5LxakShg" },
+        { id: 3, videoID: "rl8C1gfhn8w" }
       ]
     };
   }
-}
+};
 </script>
 
 <style>
-@import url('https://fonts.googleapis.com/css2?family=Nunito:wght@900&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Nunito:wght@900&display=swap");
 
 :root {
-  --light-mode-bg-color: #1A5E81;
+  --light-mode-bg-color: #1a5e81;
   --light-mode-font-color: #ffffff;
-  --light-mode-headline-color: #FFB091;
-  --light-mode-headline-border-color: #FF6C83;
+  --light-mode-headline-color: #ffb091;
+  --light-mode-headline-border-color: #ff6c83;
   --light-mode-search-bar-submit-bg-color: #084361;
   --light-mode-table-bg-color: #084361;
   --light-mode-button-hover-bg-color: #0b4b6b;
@@ -204,24 +199,25 @@ body {
   }
 }
 
-.site-wrapper > *:not(.sausage-reel, .back-to-top-button, .sausage-reel__text, #sausageReelCanvas) {
+.site-wrapper
+  > *:not(.sausage-reel, .back-to-top-button, .sausage-reel__text, #sausageReelCanvas) {
   transition: filter 0.5s ease-out;
 }
 
-.site-wrapper__sausage-reel--active > *:not(.sausage-reel, .back-to-top-button, .sausage-reel__text, #sausageReelCanvas) {
+.site-wrapper__sausage-reel--active
+  > *:not(.sausage-reel, .back-to-top-button, .sausage-reel__text, #sausageReelCanvas) {
   filter: blur(5px);
 }
 
 p,
 p a {
   color: white;
-  font-family: 'Nunito', 'Arial' ,sans-serif;
+  font-family: "Nunito", "Arial", sans-serif;
   font-weight: 700;
   font-size: 20px;
   letter-spacing: 1px;
   line-height: 1.3;
 }
-
 
 p {
   hyphens: auto;
@@ -264,7 +260,11 @@ p {
 }
 
 @keyframes background-animation {
-  from {transform: translate(0, 0)}
-  from {transform: translate(120px, 120px)}
+  from {
+    transform: translate(0, 0);
+  }
+  from {
+    transform: translate(120px, 120px);
+  }
 }
 </style>
