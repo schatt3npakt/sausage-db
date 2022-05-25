@@ -2831,7 +2831,7 @@
     {
       "Id": 203,
       "type": "Gummy Bears",
-      "rating": Disqualified,
+      "rating": -1,
       "dibl": -1, 
       "dibu": 1,
       "song": "- No Song -",
