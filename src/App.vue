@@ -139,13 +139,13 @@ export default {
     return {
       madeData: madeDataJSON.data,
       sausageStats: [
-        { id: 0, value: "201", message: "Sausages made!" },
+        { id: 0, value: "203", message: "Sausages made!" },
         { id: 1, value: "16", message: "5/5 Sausages!" },
-        { id: 2, value: "100", message: "Sausage Bursts!" }
+        { id: 2, value: "101", message: "Sausage Bursts!" }
       ],
       sausageStats2: [
-        { id: 0, value: "51,03%", message: "Burst-Ratio!" },
-        { id: 1, value: "3", message: "Current \n No-Burst Streak!" },
+        { id: 0, value: "49,75%", message: "Burst-Ratio!" },
+        { id: 1, value: "0", message: "Current \n No-Burst Streak!" },
         { id: 2, value: "9", message: "Longest \n No-Burst-Streak!" }
       ],
       videos: [
