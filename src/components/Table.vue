@@ -3,22 +3,22 @@
     <div class="table__sidebar">
       <div class="table__sidebar__inner">
         <span
-            class="table__sidebar__name-filter"
-            :class="{
-                current: (currentSort === 'type') ? 'current' : '',
-                asc: (currentSortDir === 'asc') ?  'asc' : ''
-              }"
-            @click="sort('type')"
+          class="table__sidebar__name-filter"
+          :class="{
+            current: currentSort === 'type' ? 'current' : '',
+            asc: currentSortDir === 'asc' ? 'asc' : '',
+          }"
+          @click="sort('type')"
         >
           Type
         </span>
         <span
-            v-for="entry in sortedSausages"
-            class="table__sidebar__item"
-            :key="entry.id"
-            :id="kebabCase(entry.type) + '-sidebar'"
-        >{{ entry.type }}
-      </span>
+          v-for="entry in sortedSausages"
+          class="table__sidebar__item"
+          :key="entry.id"
+          :id="kebabCase(entry.type) + '-sidebar'"
+          >{{ entry.type }}
+        </span>
       </div>
     </div>
 
@@ -26,97 +26,108 @@
       <table class="table" cellpadding="0" cellspacing="0">
         <tr class="table__header-wrapper">
           <th
-              class="type-mobile"
-              :class="{
-                current: (currentSort === 'type') ? 'current' : '',
-                asc: (currentSortDir === 'asc') ?  'asc' : ''
-              }"
-              @click="sort('type')"
-          >Type
+            class="type-mobile"
+            :class="{
+              current: currentSort === 'type' ? 'current' : '',
+              asc: currentSortDir === 'asc' ? 'asc' : '',
+            }"
+            @click="sort('type')"
+          >
+            Type
           </th>
           <th
-              :class="{
-                current: (currentSort === 'id') ? 'current' : '',
-                asc: (currentSortDir === 'asc') ?  'asc' : ''
-              }"
-              @click="sort('id')"
-          >Number
+            :class="{
+              current: currentSort === 'id' ? 'current' : '',
+              asc: currentSortDir === 'asc' ? 'asc' : '',
+            }"
+            @click="sort('id')"
+          >
+            Number
           </th>
           <th
-              :class="{
-                current: (currentSort === 'rating') ? 'current' : '',
-                asc: (currentSortDir === 'asc') ?  'asc' : ''
-              }"
-              @click="sort('rating')"
-          >Rating
+            :class="{
+              current: currentSort === 'rating' ? 'current' : '',
+              asc: currentSortDir === 'asc' ? 'asc' : '',
+            }"
+            @click="sort('rating')"
+          >
+            Rating
           </th>
           <th
-              :class="{
-                current: (currentSort === 'dibl') ? 'current' : '',
-                asc: (currentSortDir === 'asc') ?  'asc' : ''
-              }"
-              @click="sort('dibl')"
-          >Did It Blow?
+            :class="{
+              current: currentSort === 'dibl' ? 'current' : '',
+              asc: currentSortDir === 'asc' ? 'asc' : '',
+            }"
+            @click="sort('dibl')"
+          >
+            Did It Blow?
           </th>
           <th
-              :class="{
-                current: (currentSort === 'dibu') ? 'current' : '',
-                asc: (currentSortDir === 'asc') ?  'asc' : ''
-              }"
-              @click="sort('dibu')"
-          >Did It Burst?
+            :class="{
+              current: currentSort === 'dibu' ? 'current' : '',
+              asc: currentSortDir === 'asc' ? 'asc' : '',
+            }"
+            @click="sort('dibu')"
+          >
+            Did It Burst?
           </th>
           <th
-              :class="{
-                current: (currentSort === 'episode') ? 'current' : '',
-                asc: (currentSortDir === 'asc') ?  'asc' : ''
-              }"
-              @click="sort('episode')"
-          >Episode
+            :class="{
+              current: currentSort === 'episode' ? 'current' : '',
+              asc: currentSortDir === 'asc' ? 'asc' : '',
+            }"
+            @click="sort('episode')"
+          >
+            Episode
           </th>
           <th
-              :class="{
-                current: (currentSort === 'episodeType') ? 'current' : '',
-                asc: (currentSortDir === 'asc') ?  'asc' : ''
-              }"
-              @click="sort('episodeType')"
-          >Episode Type
+            :class="{
+              current: currentSort === 'episodeType' ? 'current' : '',
+              asc: currentSortDir === 'asc' ? 'asc' : '',
+            }"
+            @click="sort('episodeType')"
+          >
+            Episode Type
           </th>
           <th
-              :class="{
-                current: (currentSort === 'episodeLength') ? 'current' : '',
-                asc: (currentSortDir === 'asc') ?  'asc' : ''
-              }"
-              @click="sort('episodeLength')"
-          >Episode Length
+            :class="{
+              current: currentSort === 'episodeLength' ? 'current' : '',
+              asc: currentSortDir === 'asc' ? 'asc' : '',
+            }"
+            @click="sort('episodeLength')"
+          >
+            Episode Length
           </th>
           <th
-              :class="{
-                current: (currentSort === 'song') ? 'current' : '',
-                asc: (currentSortDir === 'asc') ?  'asc' : ''
-              }"
-              @click="sort('song')"
-          >Mr. Sausage Sings
+            :class="{
+              current: currentSort === 'song' ? 'current' : '',
+              asc: currentSortDir === 'asc' ? 'asc' : '',
+            }"
+            @click="sort('song')"
+          >
+            Mr. Sausage Sings
           </th>
         </tr>
 
         <tr
-            class="table__row"
-            v-for="entry in sortedSausages"
-            :key="entry.id"
-            :id="kebabCase(entry.type)"
+          class="table__row"
+          v-for="entry in sortedSausages"
+          :key="entry.id"
+          :id="kebabCase(entry.type)"
         >
           <td class="type-mobile">
-            {{entry.type}}
+            {{ entry.type }}
           </td>
           <td>
             <span v-if="entry.id < 10">00{{ entry.id }}</span>
-            <span v-else-if="entry.id > 9 && entry.id < 100">0{{ entry.id }}</span>
+            <span v-else-if="entry.id > 9 && entry.id < 100"
+              >0{{ entry.id }}</span
+            >
             <span v-else>{{ entry.id }}</span>
           </td>
           <td>
             <span v-if="entry.rating === -1">Disqualified</span>
-            <span v-else>{{entry.rating}}/5</span>
+            <span v-else>{{ entry.rating }}/5</span>
           </td>
           <td>
             <span v-if="entry.dibl === -1">Not Done</span>
@@ -138,21 +149,28 @@
           </td>
           <td>
             <a
-                :href="`https://www.youtube.com/watch?v=${entry.episodeID}`"
-                target="_blank"
-                rel="noopener"
-            >{{ entry.episode }}</a>
+              :href="`https://www.youtube.com/watch?v=${entry.episodeID}`"
+              target="_blank"
+              rel="noopener"
+              >{{ entry.episode }}</a
+            >
           </td>
           <td>
             <span v-if="entry.episodeType === 0">Collaboration</span>
             <span v-else-if="entry.episodeType === 1">Holiday Special</span>
-            <span v-else-if="entry.episodeType === 2">Livestream Recording</span>
+            <span v-else-if="entry.episodeType === 2"
+              >Livestream Recording</span
+            >
             <span v-else-if="entry.episodeType === 3">Milestone Special</span>
             <span v-else-if="entry.episodeType === 4">Other</span>
             <span v-else-if="entry.episodeType === 5">Should You Buy It?</span>
             <span v-else-if="entry.episodeType === 6">Standard</span>
-            <span v-else-if="entry.episodeType === 7">YouTube Celebrity Special</span>
-            <span v-else-if="entry.episodeType === 8">YouTube Comments Suggestions</span>
+            <span v-else-if="entry.episodeType === 7"
+              >YouTube Celebrity Special</span
+            >
+            <span v-else-if="entry.episodeType === 8"
+              >YouTube Comments Suggestions</span
+            >
           </td>
           <td>{{ entry.episodeLength }}</td>
           <td>
@@ -169,53 +187,53 @@
 
 export default {
   computed: {
-    sortedSausages: function () {
+    sortedSausages: function() {
       // eslint-disable-next-line vue/no-side-effects-in-computed-properties
       return this.sausages.sort((a, b) => {
         let modifier = 1;
-        if (this.currentSortDir === 'desc') modifier = -1;
+        if (this.currentSortDir === "desc") modifier = -1;
         if (a[this.currentSort] < b[this.currentSort]) return -1 * modifier;
         if (a[this.currentSort] > b[this.currentSort]) return modifier;
         return 0;
       });
     }
   },
-  data: function () {
+  data: function() {
     return {
-      currentSort: 'id',
-      currentSortDir: 'desc',
+      currentSort: "id",
+      currentSortDir: "desc",
       sausages: this.sausageData
-    }
+    };
   },
   methods: {
-    kebabCase: function (string) {
-      return string.toLowerCase().replace(/\s+/g, '-')
+    kebabCase: function(string) {
+      return string.toLowerCase().replace(/\s+/g, "-");
     },
-    sort: function (s) {
+    sort: function(s) {
       if (s === this.currentSort) {
-        this.currentSortDir = this.currentSortDir === 'asc' ? 'desc' : 'asc'
+        this.currentSortDir = this.currentSortDir === "asc" ? "desc" : "asc";
       }
-      this.currentSort = s
+      this.currentSort = s;
     }
   },
-  mounted: function () {
-    tableScroll()
+  mounted: function() {
+    tableScroll();
   },
-  name: 'Headline',
+  name: "Headline",
   props: {
     sausageData: Array,
     message: String,
     tag: Number
   }
-}
+};
 
 function tableScroll() {
-  let table = document.querySelector(".table__data-wrapper")
-  let tableSideBar = document.querySelector(".table__sidebar__inner")
+  let table = document.querySelector(".table__data-wrapper");
+  let tableSideBar = document.querySelector(".table__sidebar__inner");
 
-  table.addEventListener('scroll', function () {
-    tableSideBar.style.marginTop = (table.scrollTop * -1) + "px"
-  })
+  table.addEventListener("scroll", function() {
+    tableSideBar.style.marginTop = table.scrollTop * -1 + "px";
+  });
 }
 </script>
 
@@ -262,7 +280,7 @@ function tableScroll() {
   background-color: var(--light-mode-table-bg-color);
   border-radius: 15px;
   display: flex;
-  font-family: 'Nunito', 'Arial', sans-serif;
+  font-family: "Nunito", "Arial", sans-serif;
   max-width: 1100px;
   max-height: 459px;
   margin: 0 auto 60px auto;
@@ -351,7 +369,7 @@ tr.is-current {
 
 @media (min-width: 600px) {
   .type-mobile {
-    display: none
+    display: none;
   }
 }
 

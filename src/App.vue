@@ -28,6 +28,7 @@
       <Searchbar />
     </section>
 
+    <!--
     <Divider />
 
     <section>
@@ -37,6 +38,7 @@
 
       <SausageStats :items="sausageStats2" />
     </section>
+    -->
 
     <Divider />
 
@@ -114,13 +116,15 @@ import CTA from "./components/CTA";
 import Divider from "./components/Divider";
 import Headline from "./components/Headline.vue";
 // import SausageReel from "./components/SausageReel";
-import SausageStats from "./components/SausageStats";
+// import SausageStats from "./components/SausageStats";
 import Searchbar from "./components/Searchbar";
 import Table from "./components/Table.vue";
+import Airtable from "airtable";
 // import VideoSlider from "./components/VideoSlider";
 
-// data imports
-import * as madeDataJSON from "/data/madeSausages.json";
+const airtable = new Airtable({
+  apiKey: process.env.VUE_APP_AIRTABLE_API_KEY
+}).base(process.env.VUE_APP_AIRTABLE_BASE_ID);
 
 export default {
   name: "App",
@@ -130,14 +134,18 @@ export default {
     Divider,
     Headline,
     // SausageReel,
-    SausageStats,
+    // SausageStats,
     Searchbar,
     Table
     // VideoSlider
   },
+  computed: {
+    madeData() {
+      return this.$store.state.sausageData;
+    }
+  },
   data: function() {
     return {
-      madeData: madeDataJSON.data,
       sausageStats: [
         { id: 0, value: "203", message: "Sausages made!" },
         { id: 1, value: "16", message: "5/5 Sausages!" },
@@ -155,6 +163,37 @@ export default {
         { id: 3, videoID: "rl8C1gfhn8w" }
       ]
     };
+  },
+  mounted: function() {
+    const that = this;
+
+    airtable("sausages")
+      .select({
+        view: "Grid view"
+      })
+      .eachPage(
+        function page(records, next) {
+          records.forEach(function(rec) {
+            try {
+              that.$store.state.sausageData.push(rec.fields);
+            } catch (err) {
+              console.error(err);
+            }
+          });
+
+          try {
+            next();
+          } catch {
+            return;
+          }
+        },
+        function(err) {
+          if (err) {
+            console.error(err);
+            return;
+          }
+        }
+      );
   }
 };
 </script>
