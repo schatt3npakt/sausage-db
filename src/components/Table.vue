@@ -130,18 +130,23 @@
             <span v-else>{{ entry.rating }}/5</span>
           </td>
           <td>
-            <span v-if="entry.dibl === -1">Not Done</span>
-            <span v-else-if="entry.dibl === 0">No (No Rating)</span>
-            <span v-else-if="entry.dibl === 0.2">0/5 Mark Ruffalos</span>
-            <span v-else-if="entry.dibl === 1">Yes (No Rating)</span>
-            <span v-else-if="entry.dibl === 1.5">0.5/5 Mark Ruffalos</span>
-            <span v-else-if="entry.dibl === 2">1/5 Mark Ruffalos</span>
-            <span v-else-if="entry.dibl === 3">2/5 Mark Ruffalos</span>
-            <span v-else-if="entry.dibl === 3.5">2.5/5 Mark Ruffalos</span>
-            <span v-else-if="entry.dibl === 4">3/5 Mark Ruffalos</span>
-            <span v-else-if="entry.dibl === 5">4/5 Mark Ruffalos</span>
-            <span v-else-if="entry.dibl === 6">5/5 Mark Ruffalos</span>
-            <span v-else-if="entry.dibl === 7">6/5 Mark Ruffalos</span>
+            <span v-if="entry.dibl === -3">Not Done</span>
+            <span v-else-if="entry.dibl === -2">No (No Rating)</span>
+            <span v-else-if="entry.dibl === -1">Yes (No Rating)</span>
+            <span v-else-if="entry.dibl === 0">0/5 Mark Ruffalos</span>
+            <span v-else-if="entry.dibl === 0.5">0.5/5 Mark Ruffalos</span>
+            <span v-else-if="entry.dibl === 1">1/5 Mark Ruffalos</span>
+            <span v-else-if="entry.dibl === 1.5">1.5/5 Mark Ruffalos</span>
+            <span v-else-if="entry.dibl === 2">2/5 Mark Ruffalos</span>
+            <span v-else-if="entry.dibl === 2.5">2.5/5 Mark Ruffalos</span>
+            <span v-else-if="entry.dibl === 3">3/5 Mark Ruffalos</span>
+            <span v-else-if="entry.dibl === 3.5">3.5/5 Mark Ruffalos</span>
+            <span v-else-if="entry.dibl === 4">4/5 Mark Ruffalos</span>
+            <span v-else-if="entry.dibl === 4.5">4.5/5 Mark Ruffalos</span>
+            <span v-else-if="entry.dibl === 5">5/5 Mark Ruffalos</span>
+            <span v-else-if="entry.dibl === 5.5">5.5/5 Mark Ruffalos</span>
+            <span v-else-if="entry.dibl === 6">6/5 Mark Ruffalos</span>
+            <span v-else-if="entry.dibl === 6.5">6.5/5 Mark Ruffalos</span>
           </td>
           <td>
             <span v-if="entry.dibu === 0">No</span>
