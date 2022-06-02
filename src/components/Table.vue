@@ -147,6 +147,7 @@
             <span v-else-if="entry.dibl === 5.5">5.5/5 Mark Ruffalos</span>
             <span v-else-if="entry.dibl === 6">6/5 Mark Ruffalos</span>
             <span v-else-if="entry.dibl === 6.5">6.5/5 Mark Ruffalos</span>
+            <span v-else>{entry.dibl}</span>
           </td>
           <td>
             <span v-if="entry.dibu === 0">No</span>
@@ -176,6 +177,8 @@
             <span v-else-if="entry.episodeType === 8"
               >YouTube Comments Suggestions</span
             >
+            <span v-else-if="entry.episodeType === 9">Tier List</span>
+            <span v-else>{entry.episodeType}</span>
           </td>
           <td>{{ entry.episodeLength }}</td>
           <td>
