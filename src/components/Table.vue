@@ -130,7 +130,8 @@
             <span v-else>{{ entry.rating }}/5</span>
           </td>
           <td>
-            <span v-if="entry.dibl === -3">Not Done</span>
+            <span v-if="entry.dibl === -4">1 Frank Oz</span>
+            <span v-else-if="entry.dibl === -3">Not Done</span>
             <span v-else-if="entry.dibl === -2">No (No Rating)</span>
             <span v-else-if="entry.dibl === -1">Yes (No Rating)</span>
             <span v-else-if="entry.dibl === 0">0/5 Mark Ruffalos</span>
