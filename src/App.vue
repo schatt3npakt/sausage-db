@@ -167,7 +167,7 @@ export default {
   mounted: function() {
     const that = this;
 
-    airtable("sausages copy")
+    airtable("sausages")
       .select({
         view: "Grid view"
       })
