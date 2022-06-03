@@ -126,7 +126,7 @@
             <span v-else>{{ entry.id }}</span>
           </td>
           <td>
-            <span v-if="entry.rating === -1">Disqualified</span>
+            <span v-if="entry.rating === -1.0">Disqualified</span>
             <span v-else>{{ entry.rating }}/5</span>
           </td>
           <td>
@@ -147,7 +147,7 @@
             <span v-else-if="entry.dibl === 5.5">5.5/5 Mark Ruffalos</span>
             <span v-else-if="entry.dibl === 6">6/5 Mark Ruffalos</span>
             <span v-else-if="entry.dibl === 6.5">6.5/5 Mark Ruffalos</span>
-            <span v-else>{entry.dibl}</span>
+            <span v-else>{{ entry.dibl }}</span>
           </td>
           <td>
             <span v-if="entry.dibu === 0">No</span>
