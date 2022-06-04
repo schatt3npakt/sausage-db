@@ -28,9 +28,8 @@
       <Searchbar />
     </section>
 
-    <!--
     <Divider />
-
+    <!--
     <section>
       <Headline message="Sausage Stats" :tag="2" />
 
@@ -38,9 +37,9 @@
 
       <SausageStats :items="sausageStats2" />
     </section>
-    -->
 
     <Divider />
+-->
 
     <section>
       <Headline message="Made Sausages" :tag="2" />
@@ -79,18 +78,14 @@
 
     <!--
     <section>
-      <Headline
-          message="Latest Sausage Videos"
-          :tag="2"
-      />
+      <Headline message="Latest Sausage Videos" :tag="2" />
 
-      <VideoSlider
-          :videos="videos"
-      />
+      <VideoSlider />
     </section>
 
     <Divider />
--->
+    -->
+
     <section>
       <Headline message="Contact" :tag="2" />
 
@@ -155,19 +150,13 @@ export default {
         { id: 0, value: "49,75%", message: "Burst-Ratio!" },
         { id: 1, value: "0", message: "Current \n No-Burst Streak!" },
         { id: 2, value: "9", message: "Longest \n No-Burst-Streak!" }
-      ],
-      videos: [
-        { id: 0, videoID: "ph0hjjN__gE" },
-        { id: 1, videoID: "v2IZxFbpv0c" },
-        { id: 2, videoID: "mHf5LxakShg" },
-        { id: 3, videoID: "rl8C1gfhn8w" }
       ]
     };
   },
   mounted: function() {
     const that = this;
 
-    airtable("sausages")
+    airtable(process.env.VUE_APP_AIRTABLE_TABLE_NAME)
       .select({
         view: "Grid view"
       })

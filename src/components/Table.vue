@@ -126,29 +126,10 @@
             <span v-else>{{ entry.id }}</span>
           </td>
           <td>
-            <span v-if="entry.rating === -1.0">Disqualified</span>
-            <span v-else>{{ entry.rating }}/5</span>
+            <span>{{ entry.rating }}</span>
           </td>
           <td>
-            <span v-if="entry.dibl === -4">1 Frank Oz</span>
-            <span v-else-if="entry.dibl === -3">Not Done</span>
-            <span v-else-if="entry.dibl === -2">No (No Rating)</span>
-            <span v-else-if="entry.dibl === -1">Yes (No Rating)</span>
-            <span v-else-if="entry.dibl === 0">0/5 Mark Ruffalos</span>
-            <span v-else-if="entry.dibl === 0.5">0.5/5 Mark Ruffalos</span>
-            <span v-else-if="entry.dibl === 1">1/5 Mark Ruffalos</span>
-            <span v-else-if="entry.dibl === 1.5">1.5/5 Mark Ruffalos</span>
-            <span v-else-if="entry.dibl === 2">2/5 Mark Ruffalos</span>
-            <span v-else-if="entry.dibl === 2.5">2.5/5 Mark Ruffalos</span>
-            <span v-else-if="entry.dibl === 3">3/5 Mark Ruffalos</span>
-            <span v-else-if="entry.dibl === 3.5">3.5/5 Mark Ruffalos</span>
-            <span v-else-if="entry.dibl === 4">4/5 Mark Ruffalos</span>
-            <span v-else-if="entry.dibl === 4.5">4.5/5 Mark Ruffalos</span>
-            <span v-else-if="entry.dibl === 5">5/5 Mark Ruffalos</span>
-            <span v-else-if="entry.dibl === 5.5">5.5/5 Mark Ruffalos</span>
-            <span v-else-if="entry.dibl === 6">6/5 Mark Ruffalos</span>
-            <span v-else-if="entry.dibl === 6.5">6.5/5 Mark Ruffalos</span>
-            <span v-else>{{ entry.dibl }}</span>
+            <span>{{ entry.dibl }}</span>
           </td>
           <td>
             <span v-if="entry.dibu === 0">No</span>
@@ -163,23 +144,7 @@
             >
           </td>
           <td>
-            <span v-if="entry.episodeType === 0">Collaboration</span>
-            <span v-else-if="entry.episodeType === 1">Holiday Special</span>
-            <span v-else-if="entry.episodeType === 2"
-              >Livestream Recording</span
-            >
-            <span v-else-if="entry.episodeType === 3">Milestone Special</span>
-            <span v-else-if="entry.episodeType === 4">Other</span>
-            <span v-else-if="entry.episodeType === 5">Should You Buy It?</span>
-            <span v-else-if="entry.episodeType === 6">Standard</span>
-            <span v-else-if="entry.episodeType === 7"
-              >YouTube Celebrity Special</span
-            >
-            <span v-else-if="entry.episodeType === 8"
-              >YouTube Comments Suggestions</span
-            >
-            <span v-else-if="entry.episodeType === 9">Tier List</span>
-            <span v-else>{entry.episodeType}</span>
+            <span>{{ entry.episodeType }}</span>
           </td>
           <td>{{ entry.episodeLength }}</td>
           <td>
