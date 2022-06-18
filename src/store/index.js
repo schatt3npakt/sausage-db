@@ -5,7 +5,11 @@ export default createStore({
     sausageData: []
   },
   getters: {},
-  mutations: {},
+  mutations: {
+    updateSausageData (state, newArray) {
+      state.sausageData = newArray
+    }
+  },
   actions: {},
   modules: {}
 });

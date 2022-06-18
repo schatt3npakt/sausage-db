@@ -2,53 +2,60 @@
   <div class="glide">
     <div class="glide__track" data-glide-el="track">
       <ul class="glide__slides">
-        <li
-            class="glide__slide"
-            v-for="video in videos"
-            :key="video.id"
-        >
-          <iframe class="glide__video" width="600" height="450" :src="`https://www.youtube-nocookie.com/embed/${video.videoID}`" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+        <li class="glide__slide" v-for="video in latestVideos" :key="video.id">
+          <iframe
+            class="glide__video"
+            width="600"
+            height="450"
+            :src="`https://www.youtube-nocookie.com/embed/${video.episodeID}`"
+            title="YouTube video player"
+            frameborder="0"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+            allowfullscreen
+          ></iframe>
         </li>
       </ul>
     </div>
 
     <div class="glide__bullets" data-glide-el="controls[nav]">
       <button
-          class="glide__bullet"
-          v-for="(video, index) in videos"
-          :data-glide-dir="glideData(index)"
-          :key="video.id"
+        class="glide__bullet"
+        v-for="(video, index) in videos"
+        :data-glide-dir="glideData(index)"
+        :key="video.id"
       ></button>
     </div>
   </div>
 </template>
 
 <script>
-import Glide from '@glidejs/glide'
+import Glide from "@glidejs/glide";
 
 export default {
-  methods: {
-    glideData: function (index) {
-      return "=" + index
+  computed: {
+    latestVideos() {
+      return this.$store.state.sausageData.slice(-3);
     }
   },
-  mounted: function () {
+  methods: {
+    glideData: function(index) {
+      return "=" + index;
+    }
+  },
+  mounted: function() {
     window.onload = () => {
-      new Glide('.glide', {
+      new Glide(".glide", {
         autoplay: 2500,
         hoverpause: true,
         perView: 1,
         startAt: 0,
         dragThreshold: false,
-        type: 'carousel'
-      }).mount()
+        type: "carousel"
+      }).mount();
     };
   },
-  name: 'VideoSlider',
-  props: {
-    videos: Array
-  }
-}
+  name: "VideoSlider"
+};
 </script>
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->

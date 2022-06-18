@@ -161,6 +161,9 @@
 
 export default {
   computed: {
+    sausages () {
+      return this.$store.state.sausageData;
+    },
     sortedSausages: function() {
       // eslint-disable-next-line vue/no-side-effects-in-computed-properties
       return this.sausages.sort((a, b) => {
@@ -176,7 +179,6 @@ export default {
     return {
       currentSort: "id",
       currentSortDir: "desc",
-      sausages: this.sausageData
     };
   },
   methods: {
@@ -195,7 +197,6 @@ export default {
   },
   name: "Headline",
   props: {
-    sausageData: Array,
     message: String,
     tag: Number
   }

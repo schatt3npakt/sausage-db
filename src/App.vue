@@ -44,7 +44,7 @@
     <section>
       <Headline message="Made Sausages" :tag="2" />
 
-      <Table :sausageData="madeData" />
+      <Table />
     </section>
 
     <Divider />
@@ -153,18 +153,19 @@ export default {
       ]
     };
   },
-  mounted: function() {
-    const that = this;
+  mounted: async function() {
+    const store = this.$store;
+    const sausageData = [];
 
-    airtable(process.env.VUE_APP_AIRTABLE_TABLE_NAME)
+    await airtable(process.env.VUE_APP_AIRTABLE_TABLE_NAME)
       .select({
         view: "Grid view"
       })
       .eachPage(
-        function page(records, next) {
+        (records, next) => {
           records.forEach(function(rec) {
             try {
-              that.$store.state.sausageData.push(rec.fields);
+              sausageData.push(rec.fields);
             } catch (err) {
               console.error(err);
             }
@@ -175,14 +176,10 @@ export default {
           } catch {
             return;
           }
-        },
-        function(err) {
-          if (err) {
-            console.error(err);
-            return;
-          }
         }
       );
+
+    store.commit('updateSausageData', sausageData);
   }
 };
 </script>

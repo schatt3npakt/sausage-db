@@ -31,3 +31,8 @@ See [Configuration Reference](https://cli.vuejs.org/config/).
 ### Data
 
 The data for this application resides in the data/madeSausages.json and the App.vue.
+
+# TODO
+
+- add sausage stats
+- add sausage awatds, best/worst
