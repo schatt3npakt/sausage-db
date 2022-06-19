@@ -1,18 +1,56 @@
 <template>
-  <div class="sausage-stats">
-    <div class="sausage-stats__item"  v-for="item in items" :key="item.id">
-      <p class="sausage-stats__item__value">{{item.value}}</p>
-      <p class="sausage-stats__item__message">{{item.message}}</p>
+  <div>
+    <div class="sausage-stats">
+      <div class="sausage-stats__item">
+        <p class="sausage-stats__item__value">{{totalSausages}}</p>
+        <p class="sausage-stats__item__message">Sausages made!</p>
+      </div>
+
+      <div class="sausage-stats__item">
+        <p class="sausage-stats__item__value">{{topRated}}</p>
+        <p class="sausage-stats__item__message">Top rated <br/> sausages!</p>
+      </div>
+
+      <div class="sausage-stats__item">
+        <p class="sausage-stats__item__value">{{sausageBursts}}</p>
+        <p class="sausage-stats__item__message">Sausage bursts!</p>
+      </div>
     </div>
+
+  <div class="sausage-stats">
+    <div class="sausage-stats__item">
+      <p class="sausage-stats__item__value">{{sausageBurstRatio}} %</p>
+      <p class="sausage-stats__item__message">Burst ratio!</p>
+    </div>
+
+    <div class="sausage-stats__item">
+      <p class="sausage-stats__item__value">{{streak}}</p>
+      <p class="sausage-stats__item__message">No-Burst streak!</p>
+    </div>
+  </div>
   </div>
 </template>
 
 <script>
 export default {
+  computed: {
+    streak () {
+      return this.$store.getters.getStreak;
+    },
+    sausageBurstRatio () {
+      return Math.round(((100 / this.$store.state.sausageData.length) * this.$store.getters.getSausageBursts.length + Number.EPSILON) * 100) / 100
+    },
+    sausageBursts () {
+      return this.$store.getters.getSausageBursts.length
+    },
+    topRated () {
+      return this.$store.getters.getTopRated.length
+    },
+    totalSausages () {
+      return this.$store.state.sausageData.length
+    }
+  },
   name: 'SausageStats',
-  props: {
-    items: Array
-  }
 }
 </script>
 

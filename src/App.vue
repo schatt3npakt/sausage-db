@@ -1,7 +1,7 @@
 <template>
   <div class="site-wrapper" id="siteWrapper">
     <BackToTop />
-    <!-- <SausageReel :sausageData="madeData" /> -->
+    <!-- <SausageReel /> -->
 
     <section>
       <Headline message="The Sausage Database" :tag="1" />
@@ -29,17 +29,14 @@
     </section>
 
     <Divider />
-    <!--
+
     <section>
       <Headline message="Sausage Stats" :tag="2" />
 
-      <SausageStats :items="sausageStats" />
-
-      <SausageStats :items="sausageStats2" />
+      <SausageStats />
     </section>
 
     <Divider />
--->
 
     <section>
       <Headline message="Made Sausages" :tag="2" />
@@ -75,17 +72,15 @@
     </section>
 
     <Divider />
-
-    <!--
-    <section>
+ 
+    <!-- <section>
       <Headline message="Latest Sausage Videos" :tag="2" />
 
       <VideoSlider />
     </section>
 
-    <Divider />
-    -->
-
+    <Divider /> -->
+   
     <section>
       <Headline message="Contact" :tag="2" />
 
@@ -111,7 +106,7 @@ import CTA from "./components/CTA";
 import Divider from "./components/Divider";
 import Headline from "./components/Headline.vue";
 // import SausageReel from "./components/SausageReel";
-// import SausageStats from "./components/SausageStats";
+import SausageStats from "./components/SausageStats";
 import Searchbar from "./components/Searchbar";
 import Table from "./components/Table.vue";
 import Airtable from "airtable";
@@ -129,29 +124,15 @@ export default {
     Divider,
     Headline,
     // SausageReel,
-    // SausageStats,
+    SausageStats,
     Searchbar,
-    Table
+    Table,
     // VideoSlider
   },
   computed: {
     madeData() {
       return this.$store.state.sausageData;
     }
-  },
-  data: function() {
-    return {
-      sausageStats: [
-        { id: 0, value: "203", message: "Sausages made!" },
-        { id: 1, value: "16", message: "5/5 Sausages!" },
-        { id: 2, value: "101", message: "Sausage Bursts!" }
-      ],
-      sausageStats2: [
-        { id: 0, value: "49,75%", message: "Burst-Ratio!" },
-        { id: 1, value: "0", message: "Current \n No-Burst Streak!" },
-        { id: 2, value: "9", message: "Longest \n No-Burst-Streak!" }
-      ]
-    };
   },
   mounted: async function() {
     const store = this.$store;

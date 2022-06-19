@@ -4,7 +4,7 @@
   <div class="sausage-reel__text">
     <div
         class="sausage-reel__text__item"
-        v-for="sausage in shuffleArray(sausages)"
+        v-for="sausage in sausages"
         :key="sausage.id"
     >
       <h4 class="sausage-reel__headline">{{ sausage.type }}</h4>
@@ -20,10 +20,8 @@ let sausageReelCurrentId = 0
 let sausageReelTimeouts = []
 
 export default {
-  data: function () {
-    return {
-      sausages: this.sausageData
-    }
+  sausages () {
+    return this.$store.getters.getTopRated
   },
   methods: {
     clickHandler: function () {

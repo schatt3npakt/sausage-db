@@ -166,7 +166,7 @@ export default {
     },
     sortedSausages: function() {
       // eslint-disable-next-line vue/no-side-effects-in-computed-properties
-      return this.sausages.sort((a, b) => {
+      return this.sausages.slice().sort((a, b) => {
         let modifier = 1;
         if (this.currentSortDir === "desc") modifier = -1;
         if (a[this.currentSort] < b[this.currentSort]) return -1 * modifier;

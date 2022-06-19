@@ -20,7 +20,7 @@
     <div class="glide__bullets" data-glide-el="controls[nav]">
       <button
         class="glide__bullet"
-        v-for="(video, index) in videos"
+        v-for="(video, index) in latestVideos"
         :data-glide-dir="glideData(index)"
         :key="video.id"
       ></button>
@@ -34,7 +34,7 @@ import Glide from "@glidejs/glide";
 export default {
   computed: {
     latestVideos() {
-      return this.$store.state.sausageData.slice(-3);
+      return this.$store.state.sausageData;
     }
   },
   methods: {
