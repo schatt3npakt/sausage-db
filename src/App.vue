@@ -1,7 +1,7 @@
 <template>
   <div class="site-wrapper" id="siteWrapper">
     <BackToTop />
-    <!-- <SausageReel /> -->
+    <SausageReel />
 
     <section>
       <Headline message="The Sausage Database" :tag="1" />
@@ -42,6 +42,14 @@
       <Headline message="Made Sausages" :tag="2" />
 
       <Table />
+    </section>
+
+    <Divider />
+
+    <section>
+      <Headline message="Chart" :tag="2" />
+
+      <Chart />
     </section>
 
     <Divider />
@@ -103,9 +111,10 @@
 <script>
 import BackToTop from "./components/Back-To-Top";
 import CTA from "./components/CTA";
+import Chart from "./components/Chart";
 import Divider from "./components/Divider";
 import Headline from "./components/Headline.vue";
-// import SausageReel from "./components/SausageReel";
+import SausageReel from "./components/SausageReel";
 import SausageStats from "./components/SausageStats";
 import Searchbar from "./components/Searchbar";
 import Table from "./components/Table.vue";
@@ -121,9 +130,10 @@ export default {
   components: {
     BackToTop,
     CTA,
+    Chart,
     Divider,
     Headline,
-    // SausageReel,
+    SausageReel,
     SausageStats,
     Searchbar,
     Table,
@@ -247,7 +257,6 @@ p {
 }
 
 .site-wrapper::after {
-  background-color: black;
   content: "";
   display: block;
   height: 200vh;

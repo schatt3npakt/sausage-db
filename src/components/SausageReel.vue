@@ -8,8 +8,7 @@
         :key="sausage.id"
     >
       <h4 class="sausage-reel__headline">{{ sausage.type }}</h4>
-      <p class="sausage-reel__quote">{{ sausage.episodeQuote }}</p>
-      <p class="sausage-reel__author">- {{ sausage.episodeQuoteAuthor }} -</p>
+      <p class="sausage-reel__quote">{{ sausage.rating }}</p>
     </div>
   </div>
 </template>
@@ -20,8 +19,10 @@ let sausageReelCurrentId = 0
 let sausageReelTimeouts = []
 
 export default {
-  sausages () {
-    return this.$store.getters.getTopRated
+  computed: {
+    sausages () {
+      return this.$store.getters.getTopRated
+    },
   },
   methods: {
     clickHandler: function () {
@@ -56,7 +57,7 @@ export default {
       let canvasHeight = window.innerHeight
       let canvasWidth = window.innerWidth
       let canvas = document.getElementById("sausageReelCanvas")
-      let maximumSausages = 250
+      let maximumSausages = 150
       let sausageImage = new Image()
       let sausages = []
       let vueThis = this
@@ -274,7 +275,6 @@ export default {
   font-family: 'Bodoni Moda', serif !important;
   font-size: 40px;
   font-weight: 400;
-  hyphens: auto;
   line-height: 1.3;
   margin: 0 0 25px 0;
 }
@@ -290,7 +290,7 @@ export default {
   font-family: 'Bodoni Moda', serif !important;
   font-size: 25px;
   font-weight: 400;
-  hyphens: auto;
+  color: gold;
   line-height: 1.3;
   margin-bottom: 20px;
 }
