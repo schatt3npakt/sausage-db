@@ -133,7 +133,7 @@
           </td>
           <td>
             <span v-if="entry.dibu === 0">No</span>
-            <span v-else>Yes</span>
+            <span v-else-if="entry.dibu === 1">Yes</span>
           </td>
           <td>
             <a

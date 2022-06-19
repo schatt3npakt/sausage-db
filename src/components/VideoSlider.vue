@@ -34,7 +34,7 @@ import Glide from "@glidejs/glide";
 export default {
   computed: {
     latestVideos() {
-      return this.$store.state.sausageData;
+      return this.$store.getters.getLatestVideos;
     }
   },
   methods: {
@@ -44,14 +44,16 @@ export default {
   },
   mounted: function() {
     window.onload = () => {
-      new Glide(".glide", {
-        autoplay: 2500,
-        hoverpause: true,
-        perView: 1,
-        startAt: 0,
-        dragThreshold: false,
-        type: "carousel"
-      }).mount();
+      window.setTimeout(() => {
+        new Glide(".glide", {
+          autoplay: 2500,
+          hoverpause: true,
+          perView: 1,
+          startAt: 0,
+          dragThreshold: false,
+          type: "carousel"
+        }).mount();
+      }, 2500)
     };
   },
   name: "VideoSlider"

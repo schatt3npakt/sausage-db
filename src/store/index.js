@@ -35,6 +35,9 @@ export default createStore({
       }
 
       return state.sausageData.filter(isTopRated)
+    },
+    getLatestVideos (state) {
+      return state.sausageData.slice(-5).reverse()
     }
   },
   mutations: {

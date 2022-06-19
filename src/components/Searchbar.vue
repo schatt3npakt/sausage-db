@@ -23,16 +23,13 @@
 </template>
 
 <script>
-// data imports
-import * as madeDataJSON from '/data/madeSausages.json'
-
 export default {
   computed: {
     computedSearchbarValue: function () {
       return this.kebabCase(this.searchBarValue)
     },
     filteredArray: function () {
-      return this.madeData.filter(entry => entry.type.toLowerCase().includes(this.lowerCaseSearchBarValue))
+      return this.$store.state.sausageData.slice().filter(entry => entry.type.toLowerCase().includes(this.lowerCaseSearchBarValue))
     },
     firstSearchResult: function () {
       return this.kebabCase(this.filteredArray[0].type)
@@ -43,7 +40,6 @@ export default {
   },
   data: function () {
     return {
-      madeData: madeDataJSON.data,
       searchBarValue: ""
     }
   },

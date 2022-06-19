@@ -73,13 +73,13 @@
 
     <Divider />
  
-    <!-- <section>
+    <section>
       <Headline message="Latest Sausage Videos" :tag="2" />
 
       <VideoSlider />
     </section>
 
-    <Divider /> -->
+    <Divider />
    
     <section>
       <Headline message="Contact" :tag="2" />
@@ -110,7 +110,7 @@ import SausageStats from "./components/SausageStats";
 import Searchbar from "./components/Searchbar";
 import Table from "./components/Table.vue";
 import Airtable from "airtable";
-// import VideoSlider from "./components/VideoSlider";
+import VideoSlider from "./components/VideoSlider";
 
 const airtable = new Airtable({
   apiKey: process.env.VUE_APP_AIRTABLE_API_KEY
@@ -127,7 +127,7 @@ export default {
     SausageStats,
     Searchbar,
     Table,
-    // VideoSlider
+    VideoSlider
   },
   computed: {
     madeData() {
