@@ -47,9 +47,9 @@
     <Divider />
 
     <section>
-      <Headline message="Chart" :tag="2" />
+      <Headline message="Sausage Graph" :tag="2" />
 
-      <Chart />
+      <Chart ref="chart" />
     </section>
 
     <Divider />
@@ -77,14 +77,6 @@
         message="Go To Patreon"
         link="https://www.patreon.com/ordinarysausage"
       />
-    </section>
-
-    <Divider />
- 
-    <section>
-      <Headline message="Latest Sausage Videos" :tag="2" />
-
-      <VideoSlider />
     </section>
 
     <Divider />
@@ -119,7 +111,6 @@ import SausageStats from "./components/SausageStats";
 import Searchbar from "./components/Searchbar";
 import Table from "./components/Table.vue";
 import Airtable from "airtable";
-import VideoSlider from "./components/VideoSlider";
 
 const airtable = new Airtable({
   apiKey: process.env.VUE_APP_AIRTABLE_API_KEY
@@ -136,8 +127,7 @@ export default {
     SausageReel,
     SausageStats,
     Searchbar,
-    Table,
-    VideoSlider
+    Table
   },
   computed: {
     madeData() {
@@ -171,6 +161,24 @@ export default {
       );
 
     store.commit('updateSausageData', sausageData);
+
+    this.$refs.chart.chartData.labels = this.$store.getters.getSausageIndexes
+    this.$refs.chart.chartData.datasets = [
+      {
+        label: 'Sausage Rating',
+        data: this.$store.getters.getSausageRatings,
+          borderColor: [
+              'slateblue'
+          ],
+      },
+      {
+        label: 'Will it Blow? Score',
+        data: this.$store.getters.getDibl,
+          borderColor: [
+              'rgba(255, 99, 132, 1)'
+          ],
+      },
+    ]
   }
 };
 </script>

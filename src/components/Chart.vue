@@ -78,27 +78,6 @@ export default {
         responsive: true
       }
     }
-  },
-  mounted () {
-    window.setTimeout(() => {
-      this.chartData.labels = this.$store.getters.getSausageIndexes
-      this.chartData.datasets = [
-        {
-          label: 'Sausage Rating',
-          data: this.$store.getters.getSausageRatings,
-            borderColor: [
-                'slateblue'
-            ],
-        },
-        {
-          label: 'Will it Blow? Score',
-          data: this.$store.getters.getDibl,
-            borderColor: [
-                'rgba(255, 99, 132, 1)'
-            ],
-        },
-      ]
-    }, 2500)
   }
 }
 </script>

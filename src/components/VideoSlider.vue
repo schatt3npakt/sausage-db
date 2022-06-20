@@ -29,8 +29,6 @@
 </template>
 
 <script>
-import Glide from "@glidejs/glide";
-
 export default {
   computed: {
     latestVideos() {
@@ -41,20 +39,6 @@ export default {
     glideData: function(index) {
       return "=" + index;
     }
-  },
-  mounted: function() {
-    window.onload = () => {
-      window.setTimeout(() => {
-        new Glide(".glide", {
-          autoplay: 2500,
-          hoverpause: true,
-          perView: 1,
-          startAt: 0,
-          dragThreshold: false,
-          type: "carousel"
-        }).mount();
-      }, 2500)
-    };
   },
   name: "VideoSlider"
 };
