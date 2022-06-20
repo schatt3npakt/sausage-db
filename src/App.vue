@@ -42,6 +42,11 @@
       <Headline message="Made Sausages" :tag="2" />
 
       <Table />
+
+      <Download
+        ref="download"
+        message="Download as .CSV"
+      />
     </section>
 
     <Divider />
@@ -103,6 +108,7 @@
 <script>
 import BackToTop from "./components/Back-To-Top";
 import CTA from "./components/CTA";
+import Download from "./components/Download";
 import Chart from "./components/Chart";
 import Divider from "./components/Divider";
 import Headline from "./components/Headline.vue";
@@ -121,6 +127,7 @@ export default {
   components: {
     BackToTop,
     CTA,
+    Download,
     Chart,
     Divider,
     Headline,
