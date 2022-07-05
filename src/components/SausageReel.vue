@@ -10,6 +10,14 @@
       <h4 class="sausage-reel__headline">{{ sausage.type }}</h4>
       <p class="sausage-reel__quote">{{ sausage.rating }}</p>
     </div>
+
+    <div style="display: none;">
+      <audio id="myAudio">
+        <source src="applause.wav">
+      </audio>
+
+      <button id="playButton" type="button">Play Audio</button>
+    </div>
   </div>
 </template>
 
@@ -167,8 +175,21 @@ export default {
         sausageReelCurrentId = 0
       }
 
+      var audio = document.getElementById("myAudio"); 
+      var playButton = document.getElementById("playButton"); 
+
+      function playAudio() { 
+        audio.play(); 
+      }
+
+      playButton.addEventListener('click', function () {
+        playAudio()
+      })
+
+      playButton.click()
+
       textObjectCollection.item(sausageReelCurrentId).classList.add(currentTextItemClass)
-      sausageReelTimeouts.push(window.setTimeout(this.textClassRemove,10000))
+      sausageReelTimeouts.push(window.setTimeout(this.textClassRemove,6000))
     },
 
     textClassRemove: function () {
