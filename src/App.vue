@@ -30,34 +30,51 @@
 
     <Divider />
 
-    <section>
-      <Headline message="Sausage Stats" :tag="2" />
+    <div v-show="isDataLoaded === false">
+      <section>
+        <Headline message="Loading Sausage Data..." :tag="2" />
+      </section>
 
-      <SausageStats />
-    </section>
+      <Divider />
+    </div>
+    <div v-show="isDataLoaded">
+      <section>
+        <Headline message="Sausage Stats" :tag="2" />
 
-    <Divider />
+        <SausageStats />
+      </section>
 
-    <section>
-      <Headline message="Made Sausages" :tag="2" />
+      <Divider />
 
-      <Table />
+      <section>
+        <Headline message="Made Sausages" :tag="2" />
 
-      <Download
-        ref="download"
-        message="Download as .CSV"
-      />
-    </section>
+        <Table />
 
-    <Divider />
+        <!-- <Download
+          ref="download"
+          message="Download as .CSV"
+        /> -->
+      </section>
 
-    <section>
-      <Headline message="Sausage Graph" :tag="2" />
+      <Divider />
 
-      <Chart ref="chart" />
-    </section>
+      <section>
+        <Headline message="Sausage Graph" :tag="2" />
 
-    <Divider />
+        <Chart ref="chart" />
+      </section>
+
+      <Divider />
+
+      <section>
+        <Headline message="Made Non-Sausage Meals" :tag="2" />
+
+        <NseTable />
+      </section>
+
+      <Divider />
+    </div>
 
     <section>
       <Headline message="The Data" :tag="2" />
@@ -108,7 +125,6 @@
 <script>
 import BackToTop from "./components/Back-To-Top";
 import CTA from "./components/CTA";
-import Download from "./components/Download";
 import Chart from "./components/Chart";
 import Divider from "./components/Divider";
 import Headline from "./components/Headline.vue";
@@ -116,6 +132,7 @@ import SausageReel from "./components/SausageReel";
 import SausageStats from "./components/SausageStats";
 import Searchbar from "./components/Searchbar";
 import Table from "./components/Table.vue";
+import NseTable from "./components/NseTable.vue";
 import Airtable from "airtable";
 
 const airtable = new Airtable({
@@ -127,23 +144,29 @@ export default {
   components: {
     BackToTop,
     CTA,
-    Download,
     Chart,
     Divider,
     Headline,
     SausageReel,
     SausageStats,
     Searchbar,
-    Table
+    Table,
+    NseTable
   },
   computed: {
     madeData() {
       return this.$store.state.sausageData;
     }
   },
+  data: function () {
+    return {
+      isDataLoaded: false
+    }
+  },
   mounted: async function() {
     const store = this.$store;
     const sausageData = [];
+    const nseData = [];
 
     await airtable(process.env.VUE_APP_AIRTABLE_TABLE_NAME)
       .select({
@@ -169,6 +192,31 @@ export default {
 
     store.commit('updateSausageData', sausageData);
 
+    await airtable(process.env.VUE_APP_AIRTABLE_NSE_TABLE_NAME)
+      .select({
+        view: "Grid view"
+      })
+      .eachPage(
+        (records, next) => {
+          records.forEach(function(rec) {
+            try {
+              nseData.push(rec.fields);
+            } catch (err) {
+              console.error(err);
+            }
+          });
+
+          try {
+            next();
+          } catch {
+            return;
+          }
+        }
+      );
+
+      store.commit('updateNseData', nseData);
+
+
     this.$refs.chart.chartData.labels = this.$store.getters.getSausageIndexes
     this.$refs.chart.chartData.datasets = [
       {
@@ -186,6 +234,8 @@ export default {
           ],
       },
     ]
+
+    this.isDataLoaded = true
   }
 };
 </script>

@@ -29,7 +29,7 @@ export default {
       return this.kebabCase(this.searchBarValue)
     },
     filteredArray: function () {
-      return this.$store.state.sausageData.slice().filter(entry => entry.type.toLowerCase().includes(this.lowerCaseSearchBarValue))
+      return this.$store.getters.allData.slice().filter(entry => entry.type.toLowerCase().includes(this.lowerCaseSearchBarValue))
     },
     firstSearchResult: function () {
       return this.kebabCase(this.filteredArray[0].type)

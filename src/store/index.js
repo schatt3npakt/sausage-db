@@ -2,9 +2,13 @@ import { createStore } from 'vuex';
 
 export default createStore({
   state: {
-    sausageData: []
+    sausageData: [],
+    nseData: []
   },
   getters: {
+    allData (state) {
+      return state.sausageData.concat(state.nseData)
+    },
     getSausageIndexes (state) {
       return state.sausageData.map(elem => elem.type)
     },
@@ -111,6 +115,9 @@ export default createStore({
   mutations: {
     updateSausageData (state, newArray) {
       state.sausageData = newArray
+    },
+    updateNseData (state, newArray) {
+      state.nseData = newArray
     }
   },
   actions: {},

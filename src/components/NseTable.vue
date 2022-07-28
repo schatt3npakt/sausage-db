@@ -1,7 +1,7 @@
 <template>
   <div class="table__wrapper">
     <div class="table__sidebar">
-      <div class="table__sidebar__inner--sausage">
+      <div class="table__sidebar__inner--nse">
         <span
           class="table__sidebar__name-filter"
           :class="{
@@ -22,7 +22,7 @@
       </div>
     </div>
 
-    <div class="table__data-wrapper--sausage" id="madeTable">
+    <div class="table__data-wrapper--nse" id="madeTable">
       <table class="table" cellpadding="0" cellspacing="0">
         <tr class="table__header-wrapper">
           <th
@@ -55,39 +55,12 @@
           </th>
           <th
             :class="{
-              current: currentSort === 'dibl' ? 'current' : '',
-              asc: currentSortDir === 'asc' ? 'asc' : '',
-            }"
-            @click="sort('dibl')"
-          >
-            Did It Blow?
-          </th>
-          <th
-            :class="{
-              current: currentSort === 'dibu' ? 'current' : '',
-              asc: currentSortDir === 'asc' ? 'asc' : '',
-            }"
-            @click="sort('dibu')"
-          >
-            Did It Burst?
-          </th>
-          <th
-            :class="{
               current: currentSort === 'episode' ? 'current' : '',
               asc: currentSortDir === 'asc' ? 'asc' : '',
             }"
             @click="sort('episode')"
           >
             Episode
-          </th>
-          <th
-            :class="{
-              current: currentSort === 'episodeType' ? 'current' : '',
-              asc: currentSortDir === 'asc' ? 'asc' : '',
-            }"
-            @click="sort('episodeType')"
-          >
-            Episode Type
           </th>
           <th
             :class="{
@@ -129,22 +102,12 @@
             <span>{{ entry.rating }}</span>
           </td>
           <td>
-            <span>{{ entry.dibl }}</span>
-          </td>
-          <td>
-            <span v-if="entry.dibu === 0">No</span>
-            <span v-else-if="entry.dibu === 1">Yes</span>
-          </td>
-          <td>
             <a
               :href="`https://www.youtube.com/watch?v=${entry.episodeID}`"
               target="_blank"
               rel="noopener"
               >{{ entry.episode }}</a
             >
-          </td>
-          <td>
-            <span>{{ entry.episodeType }}</span>
           </td>
           <td>{{ entry.episodeLength }}</td>
           <td>
@@ -162,7 +125,7 @@
 export default {
   computed: {
     sausages () {
-      return this.$store.state.sausageData;
+      return this.$store.state.nseData;
     },
     sortedSausages: function() {
       // eslint-disable-next-line vue/no-side-effects-in-computed-properties
@@ -203,8 +166,8 @@ export default {
 };
 
 function tableScroll() {
-  let table = document.querySelector(".table__data-wrapper--sausage");
-  let tableSideBar = document.querySelector(".table__sidebar__inner--sausage");
+  let table = document.querySelector(".table__data-wrapper--nse");
+  let tableSideBar = document.querySelector(".table__sidebar__inner--nse");
 
   table.addEventListener("scroll", function() {
     tableSideBar.style.marginTop = table.scrollTop * -1 + "px";
@@ -263,7 +226,7 @@ function tableScroll() {
   box-shadow: 0 0 15px 0 var(--light-mode-search-bar-submit-bg-color);
 }
 
-.table__data-wrapper--sausage {
+.table__data-wrapper--nse {
   overflow: auto;
 }
 
